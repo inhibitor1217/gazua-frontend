@@ -54,8 +54,8 @@
     "workbox-webpack-plugin": "3.6.2"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "start": "$env:NODE_PATH = \"./src\" & node scripts/start.js",
+    "build": "$env:NODE_PATH = \"./src\" & node scripts/build.js",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
