@@ -1,0 +1,21 @@
+@import 'styles/utils.scss';
+
+.wrapper {
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: $header-z-index;
+    }
+    .content {
+        &.has-header {
+            padding-top: $header-height;
+        }
+        &.responsive {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            @include responsive();
+        }
+    }
+}

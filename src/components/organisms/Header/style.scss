@@ -1,0 +1,15 @@
+@import 'styles/utils.scss';
+
+.header {
+    height: $header-height;
+    background: material-color('lime', '700');
+    .responsive {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        @include responsive();
+        display: flex;
+        align-items: center;     // vertical alignment
+        justify-content: center; // horizontal alignment
+        height: 100%;
+    }
+}

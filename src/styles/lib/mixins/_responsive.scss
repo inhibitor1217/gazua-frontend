@@ -1,0 +1,14 @@
+@import '~include-media/dist/include-media';
+@import 'styles/constants.scss';
+
+@mixin responsive() {
+    width: 1200px;
+    margin: 0 auto;
+    transition: width .2s ease-in-out;
+    @include media("<huge") {
+        width: 1024px;
+    }
+    @include media("<large") {
+        width: 100%;
+    }
+}

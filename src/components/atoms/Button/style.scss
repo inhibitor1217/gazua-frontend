@@ -1,9 +1,0 @@
-@import 'styles/utils.scss';
-
-.button {
-    background: material-color('blue-grey', '800');
-    padding: 1rem;
-    color: white;
-    display: inline-block;
-    @include material-shadow(5);
-}
