@@ -1,0 +1,14 @@
+@import 'styles/utils.scss';
+
+.nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: material-color('lime', '100');
+    font-family: 'Nanum Gothic', sans-serif;
+    &:hover {
+        color: white;
+    }
+}
