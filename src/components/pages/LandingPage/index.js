@@ -3,9 +3,7 @@ import { PageTemplate, Header } from 'components';
 
 const LandingPage = () => {
     return (
-        <PageTemplate
-            header={<Header/>}
-            responsive>
+        <PageTemplate header={<Header/>} responsive>
             Landing Page!
         </PageTemplate>
     );

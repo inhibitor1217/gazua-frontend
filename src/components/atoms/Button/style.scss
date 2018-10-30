@@ -1,0 +1,32 @@
+@import 'styles/utils.scss';
+
+.button {
+    display: inline-block;
+    padding: 0.3rem 1.0rem 0.3rem 1.0rem;
+
+    font-family: 'Nanum Gothic';
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: .15s ease-in;
+
+    background: transparent;
+    border: 1.5px solid material-color('grey', '200');
+
+    color: material-color('grey', '200');
+    
+    &.round-corner {
+        border-radius: 6px;
+    }
+
+    &:hover {
+        background: material-color('grey', '200');
+        color: material-color('grey', '800');
+        @include material-shadow(2);
+    }
+    
+    &:active {
+        @include material-shadow(3);
+    }
+
+}
