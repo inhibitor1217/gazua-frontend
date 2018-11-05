@@ -9,11 +9,10 @@
     );
 
     width: 100%;
-    overflow: hidden;
     position: relative;
     transition: all .2s ease-in-out;
 
-    .children {
+    .gradient-background-children {
         position: absolute;
         top: 0;
         bottom: 0;

@@ -1,0 +1,21 @@
+@import 'styles/utils.scss';
+
+.login-window {
+
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+
+   .login-window-bar {
+        height: 6px;
+        background: linear-gradient(to right, 
+            material-color('cyan', '400'),
+            material-color('light-green', '400'),
+            material-color('lime', '400'));
+   }
+
+   .login-window-content {
+        padding: 2rem;
+   }
+   
+}

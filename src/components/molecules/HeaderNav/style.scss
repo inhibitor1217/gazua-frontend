@@ -1,11 +1,9 @@
 @import 'styles/utils.scss';
 
 .header-nav {
-    
-}
-
-.login-button {
-    &:hover {
-        color: material-color('lime', '800');
+    .header-nav-login-button {
+        &:hover {
+            color: material-color('lime', '800');
+        }
     }
 }

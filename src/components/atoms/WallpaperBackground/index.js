@@ -8,8 +8,8 @@ const cx = classNames.bind(style);
 const WallpaperBackground = ({ children }) => {
     return (
         <div className={cx('wallpaper-background')}>
-            <img src={background} className={cx('image')} />
-            <div className={cx('children')}>
+            <img src={background} className={cx('wallpaper-background-image')} />
+            <div className={cx('wallpaper-background-children')}>
                 {children}
             </div>
         </div>

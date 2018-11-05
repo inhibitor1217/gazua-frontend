@@ -7,7 +7,7 @@ const cx = classNames.bind(style);
 const GradientBackground = ({ children }) => {
     return (
         <div className={cx('gradient-background')}>
-            <div className={cx('children')}>
+            <div className={cx('gradient-background-children')}>
                 {children}
             </div>
         </div>

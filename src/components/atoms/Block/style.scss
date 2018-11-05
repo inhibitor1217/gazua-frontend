@@ -7,8 +7,10 @@
 
     box-sizing: content-box;
 
+    margin: 1rem;
+
     &.round-corner {
-        border-radius: 1rem;
+        border-radius: 6px;
     }
 
     &.shadow {

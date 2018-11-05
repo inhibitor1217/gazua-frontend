@@ -8,7 +8,7 @@ const cx = classNames.bind(style);
 const HeaderNav = () => {
     return (
         <FlexBox horizontal className={cx('header-nav')}>
-            <Button className={cx('login-button')} roundCorner>
+            <Button className={cx('header-nav-login-button')} roundCorner>
                 로그인
             </Button>
         </FlexBox>

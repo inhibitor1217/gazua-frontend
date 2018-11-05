@@ -2,15 +2,14 @@
 
 .wallpaper-background {
     width: 100%;
-    overflow: hidden;
     position: relative;
     transition: all .2s ease-in-out;
+    overflow: hidden;
+    .wallpaper-background-image {
 
-    .image {
-        
     }
 
-    .children {
+    .wallpaper-background-children {
         position: absolute;
         top: 0;
         bottom: 0;

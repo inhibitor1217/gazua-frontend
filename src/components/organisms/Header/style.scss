@@ -5,7 +5,7 @@
     height: $header-height;
     background: material-color('lime', '800');
     
-    .responsive {
+    .header-responsive {
 
         padding-left: 1rem;
         padding-right: 1rem;
@@ -16,11 +16,11 @@
         justify-content: center;
         height: 100%;
 
-        .logo-wrapper {
+        .header-logo-wrapper {
             position: absolute;
         }
 
-        .right-side {
+        .header-right-side {
             margin-left: auto;
         }
 

@@ -8,11 +8,11 @@ const cx = classNames.bind(style);
 const Header = () => {
     return (
         <div className={cx('header')}>
-            <div className={cx('responsive')}>
-                <div className={cx('logo-wrapper')}>
+            <div className={cx('header-responsive')}>
+                <div className={cx('header-logo-wrapper')}>
                     <Logo />
                 </div>
-                <div className={cx('right-side')}>
+                <div className={cx('header-right-side')}>
                     <HeaderNav />
                 </div>
             </div>

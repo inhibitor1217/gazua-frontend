@@ -4,11 +4,10 @@
 
     min-width: 450px;
     min-height: 400px;
-    overflow: hidden;
-    .banner-top {
+    .login-banner-top {
         margin: 0rem 0rem 5rem 0rem;
     }
-    .banner-bottom {
+    .login-banner-bottom {
         display: flex;
         flex-direction: column;
         text-align: center;
@@ -16,16 +15,16 @@
             font-family: "Nanum Gothic";
             font-size: 18px;
             color: white;
-            .yellow {
+            .login-banner-yellow {
                 color: material-color('lime', '200');
             }
         }
-        .text-bottom {
+        .login-banner-text-bottom {
             display: flex;
             flex-direction: row;
             align-content: center;
             justify-content: center;
-            .logo-wrapper {
+            .login-banner-logo-wrapper {
                 display: flex;
                 align-content: center;
                 justify-content: center;
