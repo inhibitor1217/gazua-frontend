@@ -11,16 +11,16 @@
     transition: .15s ease-in;
 
     background: transparent;
-    border: 1.5px solid material-color('grey', '200');
+    border: 1.5px solid material-color('grey', '100');
 
-    color: material-color('grey', '200');
+    color: material-color('grey', '100');
     
     &.round-corner {
         border-radius: 6px;
     }
 
     &:hover {
-        background: material-color('grey', '200');
+        background: material-color('grey', '100');
         color: material-color('grey', '800');
         @include material-shadow(2);
     }

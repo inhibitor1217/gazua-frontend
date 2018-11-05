@@ -1,14 +1,23 @@
 @import 'styles/utils.scss';
 
 .wrapper {
+    &.full-screen {
+        height: 100vh;
+        display: flex;
+    }
     header {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
+        flex: none;
         z-index: $header-z-index;
     }
     .content {
+        display: flex;
+        &.full-screen {
+            flex: auto;
+        }
         &.has-header {
             padding-top: $header-height;
         }

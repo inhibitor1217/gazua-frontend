@@ -1,0 +1,28 @@
+@import 'styles/utils.scss';
+
+.gradient-background {
+    background: linear-gradient(
+        to right bottom, 
+        material-color('cyan', '100'),
+        material-color('light-green', '100'),
+        material-color('lime', '200')
+    );
+
+    width: 100%;
+    flex: auto;
+    overflow: hidden;
+    position: relative;
+    transition: all .2s ease-in-out;
+
+    .children {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+    }
+}

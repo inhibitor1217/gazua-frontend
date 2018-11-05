@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
-import { LandingPage, DashboardPage } from 'components';
+import { DashboardPage, LandingPage, LoginPage } from 'components';
 
 class App extends Component {
     render() {
@@ -9,6 +9,7 @@ class App extends Component {
             <div>
                 <Route exact path="/" component={LandingPage}/>
                 <Route path="/dashboard" component={DashboardPage}/>
+                <Route path="/login" component={LoginPage}/>
             </div>
         );
     }
