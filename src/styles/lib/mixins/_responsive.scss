@@ -4,7 +4,7 @@
 @mixin responsive() {
     width: 1200px;
     margin: 0 auto;
-    transition: width .2s ease-in-out;
+    transition: width .6s ease-in-out;
     @include media("<huge") {
         width: 1024px;
     }

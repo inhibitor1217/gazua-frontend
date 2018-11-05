@@ -1,5 +1,6 @@
 import React from 'react';
-import { PageTemplate, Header, ContentDivisor, WallpaperBackground, Block, LoginBanner } from 'components';
+import Media from 'react-media';
+import { PageTemplate, Header, ContentDivisor, WallpaperBackground, LoginModal, LoginBanner } from 'components';
 
 const LoginPage = () => {
     return (
@@ -7,20 +8,34 @@ const LoginPage = () => {
             header={<Header/>}
             background={
                 <WallpaperBackground>
-                    <ContentDivisor shade='left'/>
+                    <Media query="(max-width: 1000px)">
+                        {
+                            matches => matches ? (
+                                <div></div>
+                            ) : (
+                                <ContentDivisor shade='left'/>
+                            )
+                        }
+                    </Media>
                 </WallpaperBackground>
             }
             isFullScreen responsive>
-            <ContentDivisor
-                leftChild={
-                    <LoginBanner />
+            <Media query="(max-width: 1000px)">
+                {
+                    matches => matches ? (
+                        <LoginModal />
+                    ) : (
+                        <ContentDivisor
+                            leftChild={
+                                <LoginBanner />
+                            }
+                            rightChild={
+                                <LoginModal />
+                            }
+                        />
+                    )
                 }
-                rightChild={
-                    <Block roundCorner shadow>
-                        Content
-                    </Block>
-                }
-            />
+            </Media>
         </PageTemplate>
     );
 };

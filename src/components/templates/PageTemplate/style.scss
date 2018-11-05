@@ -22,6 +22,8 @@
     }
     .content {
         display: flex;
+        justify-content: center;
+        align-items: center;
         z-index: $content-z-index;
         &.full-screen {
             flex: auto;
