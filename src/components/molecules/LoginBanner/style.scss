@@ -1,0 +1,21 @@
+@import 'styles/utils.scss';
+
+.login-banner {
+    overflow: hidden;
+    .banner-top {
+        margin: 0rem 0rem 5rem 0rem;
+    }
+    .banner-bottom {
+        p {
+            font-family: "Nanum Gothic";
+            font-size: 18px;
+            color: white;
+            .yellow {
+                color: material-color('lime', '200');
+            }
+            .large {
+                font-size: 22px;
+            }
+        }
+    }
+}

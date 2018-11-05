@@ -1,17 +1,20 @@
 import React from 'react';
-import { PageTemplate, Header, ContentDivisor, GradientBackground, Block } from 'components';
+import { PageTemplate, Header, ContentDivisor, WallpaperBackground, Block, LoginBanner } from 'components';
 
 const LoginPage = () => {
     return (
         <PageTemplate
             header={<Header/>}
             background={
-                <GradientBackground>
+                <WallpaperBackground>
                     <ContentDivisor shade='left'/>
-                </GradientBackground>
+                </WallpaperBackground>
             }
             isFullScreen responsive>
             <ContentDivisor
+                leftChild={
+                    <LoginBanner />
+                }
                 rightChild={
                     <Block roundCorner shadow>
                         Content
