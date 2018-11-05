@@ -5,6 +5,8 @@
     background: material-color('grey', '100');
     overflow: hidden;
 
+    box-sizing: content-box;
+
     &.round-corner {
         border-radius: 1rem;
     }
@@ -17,6 +19,8 @@
 
         background: material-color('grey', '100');
         padding: 1rem;
+
+        font-family: 'Nanum Gothic';
 
     }
 

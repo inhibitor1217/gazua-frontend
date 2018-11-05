@@ -13,8 +13,16 @@
         flex: none;
         z-index: $header-z-index;
     }
+    .background {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        z-index: $background-z-index;
+    }
     .content {
         display: flex;
+        z-index: $content-z-index;
         &.full-screen {
             flex: auto;
         }

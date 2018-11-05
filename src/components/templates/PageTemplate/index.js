@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(style);
 
-const PageTemplate = ({ header, children, isFullScreen, responsive }) => {
+const PageTemplate = ({ header, background, children, isFullScreen, responsive }) => {
     return (
         <div className={cx('wrapper', {
             'full-screen': isFullScreen
@@ -12,6 +12,9 @@ const PageTemplate = ({ header, children, isFullScreen, responsive }) => {
             <header>
                 {header}
             </header>
+            <div className={cx('background')}>
+                {background}
+            </div>
             <div className={cx('content', {
                 'has-header': header,
                 'full-screen': isFullScreen,
