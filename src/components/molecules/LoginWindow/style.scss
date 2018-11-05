@@ -14,8 +14,11 @@
             material-color('lime', '400'));
    }
 
-   .login-window-content {
-        padding: 2rem;
+   .login-window-inputs {
+        padding: 1rem;
+        h2 {
+            text-align: center;
+        }
    }
    
 }

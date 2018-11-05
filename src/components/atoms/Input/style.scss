@@ -1,0 +1,30 @@
+@import 'styles/utils.scss';
+
+.input {
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1.5px solid material-color('grey', '600');
+    color: material-color('grey', '600');
+    &::placeholder {
+        color: material-color('grey', '600');
+    }
+    padding: 0.5rem 0 0.5rem 0;
+    font-size: 1.25rem;
+    transition: color .3s, border-color .3s;
+    font-family: "Nanum Gothic";
+    &.full-width {
+        width: 100%;
+    }
+    &:focus {
+        border-bottom: 1.5px solid black;
+        color: black;
+        &::placeholder {
+            color: black;
+        }
+    }
+}
+
+.input + .input {
+    margin-top: 1rem;
+}
