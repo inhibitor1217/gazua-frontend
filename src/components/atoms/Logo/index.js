@@ -7,8 +7,8 @@ const cx = classNames.bind(style);
 
 const Logo = () => {
     return (
-        <div>
-            <img src={logo} alt="logo" className={cx('logo')}/>
+        <div className={cx('logo')}>
+            <img src={logo} alt="logo" className={cx('logo-image')}/>
         </div>
     );
 };

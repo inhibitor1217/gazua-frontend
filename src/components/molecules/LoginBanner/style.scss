@@ -6,6 +6,9 @@
         margin: 0rem 0rem 5rem 0rem;
     }
     .banner-bottom {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
         p {
             font-family: "Nanum Gothic";
             font-size: 18px;
@@ -13,7 +16,19 @@
             .yellow {
                 color: material-color('lime', '200');
             }
-            .large {
+        }
+        .text-bottom {
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+            justify-content: center;
+            .logo-wrapper {
+                display: flex;
+                align-content: center;
+                justify-content: center;
+                margin: 0.5rem;
+            }
+            p {
                 font-size: 22px;
             }
         }
