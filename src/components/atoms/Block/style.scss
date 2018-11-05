@@ -1,0 +1,23 @@
+@import 'styles/utils.scss';
+
+.block-wrapper {
+
+    background: material-color('grey', '100');
+    overflow: hidden;
+
+    &.round-corner {
+        border-radius: 1rem;
+    }
+
+    &.shadow {
+        @include material-shadow(2);
+    }
+
+    .block {
+
+        background: material-color('grey', '100');
+        padding: 1rem;
+
+    }
+
+}

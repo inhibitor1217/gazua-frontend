@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageTemplate, Header, ContentDivisor, GradientBackground, Logo } from 'components';
+import { PageTemplate, Header, ContentDivisor, GradientBackground, Block } from 'components';
 
 const LoginPage = () => {
     return (
@@ -10,7 +10,9 @@ const LoginPage = () => {
                         <div></div>
                     }
                     rightChild={
-                        <div></div>
+                        <Block roundCorner shadow>
+                            Some Text
+                        </Block>
                     }
                     shade='left'
                 />
