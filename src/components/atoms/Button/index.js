@@ -12,17 +12,21 @@ const Button = (
         roundCorner,
         shadow,
         large,
-        flexChild
+        flexChild,
+        onClick
     }
 ) => {
     return (
-        <div className={cx('button', {
-            'button-round-corner': roundCorner,
-            'button-transparent': transparent,
-            'button-shadow': shadow,
-            'button-large': large,
-            'button-flex-child': flexChild
-        }, className)}>
+        <div
+            className={cx('button', {
+                'button-round-corner': roundCorner,
+                'button-transparent': transparent,
+                'button-shadow': shadow,
+                'button-large': large,
+                'button-flex-child': flexChild
+            }, className)}
+            onClick={onClick}
+        >
             {children}
         </div>
     );

@@ -2,7 +2,8 @@ import React from 'react';
 import Media from 'react-media';
 import style from './style.scss';
 import classNames from 'classnames/bind';
-import { ContentDivisor, LoginBanner, LoginWindow } from 'components';
+import { ContentDivisor, LoginBanner } from 'components';
+import LoginWindowContainer from 'containers/LoginWindowContainer';
 
 const cx = classNames.bind(style);
 
@@ -12,10 +13,10 @@ const LoginModal = () => {
             <Media query="(max-width: 1000px)">
                 {
                     matches => matches
-                        ? <LoginWindow />
+                        ? <LoginWindowContainer />
                         : <ContentDivisor
                             leftChild={<LoginBanner />}
-                            rightChild={<LoginWindow />}
+                            rightChild={<LoginWindowContainer />}
                         />
                 }
             </Media>
