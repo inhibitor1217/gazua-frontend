@@ -7,12 +7,13 @@
     border-bottom: 1.5px solid material-color('grey', '600');
     color: material-color('grey', '600');
     &::placeholder {
+        font-family: 'NanumSquare';
         color: material-color('grey', '600');
     }
     padding: 0.5rem 0 0.5rem 0;
     font-size: 1.25rem;
     transition: color .3s, border-color .3s;
-    font-family: "Nanum Gothic";
+    
     &.full-width {
         width: 100%;
     }
