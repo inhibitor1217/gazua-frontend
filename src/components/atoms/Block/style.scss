@@ -9,11 +9,11 @@
 
     margin: 1rem;
 
-    &.round-corner {
+    &.block-round-corner {
         border-radius: 6px;
     }
 
-    &.shadow {
+    &.block-shadow {
         @include material-shadow(4);
     }
 

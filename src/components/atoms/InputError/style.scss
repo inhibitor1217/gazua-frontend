@@ -1,0 +1,8 @@
+@import 'styles/utils.scss';
+
+.input-error {
+    color: material-color('red', '700');
+    font-size: 0.80rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
