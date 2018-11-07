@@ -12,7 +12,7 @@ const LoginWindow = ({
     onLocalLogin
 }) => {
     const { email, password } = form.toJS();
-    const { localLoginError } = error ? error.toJS() : {};
+    const { error: localLoginError } = error ? error.toJS() : {};
 
     return (
         <Block shadow>
