@@ -44,7 +44,7 @@ export default handleActions({
                 .set('error', null);
         },
         onFailure: (state, action) => {
-            return state.set('error', fromJS({ error: '로그인 에러' }));
+            return state.set('error', fromJS({ error: '서버 에러' }));
         }
     })
 }, initialState);

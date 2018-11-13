@@ -16,14 +16,14 @@ const RegisterFooter = ({
                 {
                     phase === 1
                         ? null
-                        : <MaterialIcon md-36 md-dark onClick={onClickPrevPhase}>chevron_left</MaterialIcon>
+                        : <MaterialIcon md36 dark onClick={onClickPrevPhase}>chevron_left</MaterialIcon>
                 }
             </div>
             <div className={cx('register-footer-center')}>
                 {
                     phase === 1
-                        ? <MaterialIcon md-36 md-dark onClick={onClickNextPhase}>chevron_right</MaterialIcon>
-                        : <a href="/login"><MaterialIcon md-36 md-dark>done</MaterialIcon></a>
+                        ? <MaterialIcon md36 dark onClick={onClickNextPhase}>chevron_right</MaterialIcon>
+                        : <a href="/login"><MaterialIcon md36 dark>done</MaterialIcon></a>
                 }
                 <div>{phase}/2</div>
             </div>

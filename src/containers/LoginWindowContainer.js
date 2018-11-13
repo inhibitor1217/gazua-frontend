@@ -58,7 +58,7 @@ class LoginWindowContainer extends Component {
                 }
             }
             console.log(e);
-            LoginActions.setError({ error: '로그인 에러' });
+            LoginActions.setError({ error: '서버 에러' });
         }
     }
 

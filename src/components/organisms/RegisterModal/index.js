@@ -7,6 +7,9 @@ const cx = classNames.bind(style);
 
 const RegisterModal = ({
     phase,
+    error,
+    form,
+    onChangeInput,
     onClickNextPhase,
     onClickPrevPhase
 }) => {
@@ -18,7 +21,12 @@ const RegisterModal = ({
                         <GradientBar />
                         <h2>회원가입</h2>
                     </div>
-                    <RegisterWindow phase={phase}/>
+                    <RegisterWindow
+                        phase={phase}
+                        error={error}
+                        form={form}
+                        onChangeInput={onChangeInput}
+                    />
                     <RegisterFooter
                         phase={phase}
                         onClickNextPhase={onClickNextPhase}
