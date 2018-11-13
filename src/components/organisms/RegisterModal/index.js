@@ -5,7 +5,11 @@ import { Block, GradientBar, RegisterWindow, RegisterFooter } from 'components';
 
 const cx = classNames.bind(style);
 
-const RegisterModal = () => {
+const RegisterModal = ({
+    phase,
+    onClickNextPhase,
+    onClickPrevPhase
+}) => {
     return (
         <div className={cx('register-modal-wrapper')}>
             <Block shadow>
@@ -14,8 +18,12 @@ const RegisterModal = () => {
                         <GradientBar />
                         <h2>회원가입</h2>
                     </div>
-                    <RegisterWindow />
-                    <RegisterFooter />
+                    <RegisterWindow phase={phase}/>
+                    <RegisterFooter
+                        phase={phase}
+                        onClickNextPhase={onClickNextPhase}
+                        onClickPrevPhase={onClickPrevPhase}
+                    />
                 </div>
             </Block>
         </div>

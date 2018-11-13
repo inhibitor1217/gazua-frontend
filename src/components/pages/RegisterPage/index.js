@@ -1,5 +1,6 @@
 import React from 'react';
-import { PageTemplate, Header, WallpaperBackground, RegisterModal } from 'components';
+import { PageTemplate, Header, WallpaperBackground } from 'components';
+import RegisterModalContainer from 'containers/RegisterModalContainer';
 
 const RegisterPage = () => {
     return (
@@ -9,7 +10,7 @@ const RegisterPage = () => {
                 <WallpaperBackground />
             }
             responsive>
-            <RegisterModal />
+            <RegisterModalContainer />
         </PageTemplate>
     );
 };
