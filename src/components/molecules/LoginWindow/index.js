@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './style.scss';
 import classNames from 'classnames/bind';
-import { Block, Button, Input, InputError } from 'components';
+import { Block, Button, GradientBar, Input, InputError } from 'components';
 
 const cx = classNames.bind(style);
 
@@ -17,7 +17,7 @@ const LoginWindow = ({
     return (
         <Block shadow>
             <div className={cx('login-window')}>
-                <div className={cx('login-window-bar')}></div>
+                <GradientBar />
                 <div className={cx('login-window-inputs')}>
                     <h2>로그인</h2>
                     <Input

@@ -4,9 +4,9 @@ import { Map, fromJS } from 'immutable';
 import * as AuthAPI from 'apis/auth';
 
 // action types
-const CHANGE_INPUT = 'auth/CHANGE_INPUT';
-const LOCAL_LOGIN = 'auth/LOCAL_LOGIN';
-const SET_ERROR = 'auth/SET_ERROR';
+const CHANGE_INPUT = 'login/CHANGE_INPUT';
+const LOCAL_LOGIN = 'login/LOCAL_LOGIN';
+const SET_ERROR = 'login/SET_ERROR';
 
 // action creator
 export const changeInput = createAction(CHANGE_INPUT);

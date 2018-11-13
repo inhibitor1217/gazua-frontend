@@ -4,12 +4,10 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(style);
 
-const RegisterHeader = () => {
+const GradientBar = () => {
     return (
-        <div className={cx('register-header')}>
-            foo
-        </div>
+        <div className={cx('gradient-bar')}></div>
     );
 };
 
-export default RegisterHeader;
+export default GradientBar;

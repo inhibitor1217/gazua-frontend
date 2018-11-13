@@ -6,14 +6,6 @@
     flex-direction: column;
     width: 400px;
 
-   .login-window-bar {
-        height: 6px;
-        background: linear-gradient(to right, 
-            material-color('cyan', '400'),
-            material-color('light-green', '400'),
-            material-color('lime', '400'));
-   }
-
    .login-window-inputs {
         margin: 1rem;
         h2 {
