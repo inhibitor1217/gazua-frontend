@@ -19,7 +19,7 @@ class LoginWindowContainer extends Component {
     }
 
     async onLocalLogin () {
-        const { AuthActions, UserActions, form } = this.props;
+        const { AuthActions, form } = this.props;
         const { email, password } = form.toJS();
 
         if (email === '') {

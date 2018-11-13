@@ -5,7 +5,7 @@ import { PageTemplate, Header, ContentDivisor, WallpaperBackground, LoginModal }
 const LoginPage = () => {
     return (
         <PageTemplate
-            header={<Header/>}
+            header={<Header />}
             background={
                 <WallpaperBackground>
                     <Media query="(max-width: 1000px)">

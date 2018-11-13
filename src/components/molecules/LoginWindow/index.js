@@ -46,7 +46,7 @@ const LoginWindow = ({
                     </Button>
                 </div>
                 <div className={cx('login-window-register-link')}>
-                    아직 계정이 없나요? <a>회원가입</a>
+                    아직 계정이 없나요? <a href="/register">회원가입</a>
                 </div>
             </div>
         </Block>
