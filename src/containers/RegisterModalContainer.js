@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { bindActionCreators } from 'redux';
 import Joi from 'joi';
 import { RegisterModal } from 'components';
@@ -9,8 +10,10 @@ class RegisterModalContainer extends Component {
     constructor(props) {
         super(props);
         this.handleChangeInput = this.handleChangeInput.bind(this);
-        this.checkForm = this.checkForm.bind(this);
-        this.switchPhase = this.switchPhase.bind(this);
+        this.handleCheckForm = this.handleCheckForm.bind(this);
+        this.handleSwitchPhase = this.handleSwitchPhase.bind(this);
+        this.handleRegister = this.handleRegister.bind(this);
+        this.handleRedirectToLoginPage = this.handleRedirectToLoginPage.bind(this);
     }
 
     handleChangeInput(event) {
@@ -19,10 +22,10 @@ class RegisterModalContainer extends Component {
         RegisterActions.changeInput({ name, value });
     }
 
-    async checkForm() {
+    async handleCheckForm() {
         const { form, RegisterActions } = this.props;
         const { email, password, confirmPassword } = form.toJS();
-        const { switchPhase } = this;
+        const { handleSwitchPhase } = this;
 
         if (email === '') {
             RegisterActions.setError('이메일을 입력해 주세요.');
@@ -54,19 +57,60 @@ class RegisterModalContainer extends Component {
         }
 
         RegisterActions.setError(null);
-        switchPhase(2)();
+        handleSwitchPhase(2)();
     }
 
-    switchPhase(phase) {
+    handleSwitchPhase(phase) {
         return () => {
             const { RegisterActions } = this.props;
             RegisterActions.setPhase(phase);
         };
     }
 
+    handleRedirectToLoginPage() {
+        this.props.history.push('/login');
+    }
+
+    async handleRegister() {
+        const { form, RegisterActions } = this.props;
+        const { email, password, username } = form.toJS();
+        const { handleSwitchPhase } = this;
+
+        if (username === '') {
+            RegisterActions.setError('이름을 입력해주세요.');
+            return;
+        }
+
+        if (username.length < 2) {
+            RegisterActions.setError('이름이 너무 짧습니다.');
+            return;
+        }
+
+        if (username.length > 30) {
+            RegisterActions.setError('이름이 너무 깁니다.');
+            return;
+        }
+
+        try {
+            await RegisterActions.localRegister({
+                username, email, password
+            });
+            handleSwitchPhase(3)();
+        } catch (e) {
+            console.log(e);
+            RegisterActions.setError({ error: '서버 에러' });
+        }
+    }
+
     render () {
         const { phase, error, form } = this.props;
-        const { switchPhase, handleChangeInput, checkForm } = this;
+        const {
+            handleSwitchPhase,
+            handleChangeInput,
+            handleCheckForm,
+            handleRegister,
+            handleRedirectToLoginPage
+        } = this;
         return (
             <div>
                 <RegisterModal
@@ -74,8 +118,10 @@ class RegisterModalContainer extends Component {
                     error={error}
                     form={form}
                     onChangeInput={handleChangeInput}
-                    onClickNextPhase={checkForm}
-                    onClickPrevPhase={switchPhase(1)}
+                    onClickNextPhase={handleCheckForm}
+                    onClickPrevPhase={handleSwitchPhase(1)}
+                    onClickRegister={handleRegister}
+                    onClickToLoginPage={handleRedirectToLoginPage}
                 />
             </div>
         );
@@ -83,7 +129,7 @@ class RegisterModalContainer extends Component {
 }
 
 // connect to redux
-export default connect(
+export default withRouter(connect(
     // mapStateToProps
     (state) => ({
         phase: state.register.get('phase'),
@@ -94,4 +140,4 @@ export default connect(
     (dispatch) => ({
         RegisterActions: bindActionCreators(registerActions, dispatch)
     })
-)(RegisterModalContainer);
+)(RegisterModalContainer));

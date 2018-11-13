@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './style.scss';
 import classNames from 'classnames/bind';
-import { Input, InputError } from 'components';
+import { Input, InputError, Button } from 'components';
 
 const cx = classNames.bind(style);
 
@@ -9,9 +9,10 @@ const RegisterWindow = ({
     phase,
     error,
     form,
-    onChangeInput
+    onChangeInput,
+    onClickToLoginPage
 }) => {
-    const { email, password, confirmPassword } = form.toJS();
+    const { email, password, confirmPassword, username } = form.toJS();
 
     return (
         <div className={cx('register-window')}>
@@ -46,9 +47,29 @@ const RegisterWindow = ({
                         />
                         <InputError error={error}></InputError>
                     </div>
-                    : <div>
-                        2
-                    </div>
+                    : phase === 2
+                        ? <div>
+                            <h5>이름을 입력해주세요.</h5>
+                            <Input
+                                name="username"
+                                value={username}
+                                onChange={onChangeInput}
+                                fullWidth big
+                                placeholder="이름"
+                            />
+                            <InputError error={error}></InputError>
+                        </div>
+                        : <div className={cx('register-window-complete')}>
+                            <h3>회원가입이 완료되었습니다.</h3>
+                            <div>
+                                <Button
+                                    large flexChild
+                                    onClick={onClickToLoginPage}
+                                >
+                                    로그인 페이지로
+                                </Button>
+                            </div>
+                        </div>
             }
         </div>
     );

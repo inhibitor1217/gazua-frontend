@@ -11,7 +11,9 @@ const RegisterModal = ({
     form,
     onChangeInput,
     onClickNextPhase,
-    onClickPrevPhase
+    onClickPrevPhase,
+    onClickRegister,
+    onClickToLoginPage
 }) => {
     return (
         <div className={cx('register-modal-wrapper')}>
@@ -19,18 +21,20 @@ const RegisterModal = ({
                 <div className={cx('register-modal')}>
                     <div className={cx('register-modal-header')}>
                         <GradientBar />
-                        <h2>회원가입</h2>
+                        { phase === 3 ? null : <h2>회원가입</h2> }
                     </div>
                     <RegisterWindow
                         phase={phase}
                         error={error}
                         form={form}
                         onChangeInput={onChangeInput}
+                        onClickToLoginPage={onClickToLoginPage}
                     />
                     <RegisterFooter
                         phase={phase}
                         onClickNextPhase={onClickNextPhase}
                         onClickPrevPhase={onClickPrevPhase}
+                        onClickRegister={onClickRegister}
                     />
                 </div>
             </Block>
