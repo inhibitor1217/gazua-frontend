@@ -38,7 +38,7 @@ class LoginWindowContainer extends Component {
             const { loginResult } = this.props;
             // do something with loginResult
 
-            this.props.history.push('/dashboard');
+            this.props.history.push('/');
         } catch (e) {
             if (e.response) {
                 if (e.response.status === 400) {

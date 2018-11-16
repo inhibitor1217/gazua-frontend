@@ -13,7 +13,6 @@ class RegisterModalContainer extends Component {
         this.handleCheckForm = this.handleCheckForm.bind(this);
         this.handleSwitchPhase = this.handleSwitchPhase.bind(this);
         this.handleRegister = this.handleRegister.bind(this);
-        this.handleRedirectToLoginPage = this.handleRedirectToLoginPage.bind(this);
     }
 
     handleChangeInput(event) {
@@ -67,10 +66,6 @@ class RegisterModalContainer extends Component {
         };
     }
 
-    handleRedirectToLoginPage() {
-        this.props.history.push('/login');
-    }
-
     async handleRegister() {
         const { form, RegisterActions } = this.props;
         const { email, password, username } = form.toJS();
@@ -108,8 +103,7 @@ class RegisterModalContainer extends Component {
             handleSwitchPhase,
             handleChangeInput,
             handleCheckForm,
-            handleRegister,
-            handleRedirectToLoginPage
+            handleRegister
         } = this;
         return (
             <div>
@@ -121,7 +115,6 @@ class RegisterModalContainer extends Component {
                     onClickNextPhase={handleCheckForm}
                     onClickPrevPhase={handleSwitchPhase(1)}
                     onClickRegister={handleRegister}
-                    onClickToLoginPage={handleRedirectToLoginPage}
                 />
             </div>
         );

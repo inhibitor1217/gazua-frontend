@@ -12,8 +12,7 @@ const RegisterModal = ({
     onChangeInput,
     onClickNextPhase,
     onClickPrevPhase,
-    onClickRegister,
-    onClickToLoginPage
+    onClickRegister
 }) => {
     return (
         <div className={cx('register-modal-wrapper')}>
@@ -28,7 +27,6 @@ const RegisterModal = ({
                         error={error}
                         form={form}
                         onChangeInput={onChangeInput}
-                        onClickToLoginPage={onClickToLoginPage}
                     />
                     <RegisterFooter
                         phase={phase}

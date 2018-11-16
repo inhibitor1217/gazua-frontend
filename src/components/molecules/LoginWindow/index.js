@@ -2,6 +2,7 @@ import React from 'react';
 import style from './style.scss';
 import classNames from 'classnames/bind';
 import { Block, Button, GradientBar, Input, InputError } from 'components';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(style);
 
@@ -46,7 +47,7 @@ const LoginWindow = ({
                     </Button>
                 </div>
                 <div className={cx('login-window-register-link')}>
-                    아직 계정이 없나요? <a href="/register">회원가입</a>
+                    아직 계정이 없나요? <Link to="/register">회원가입</Link>
                 </div>
             </div>
         </Block>
