@@ -12,6 +12,13 @@
         flex: 1 1 0;
     }
 
+    &.button-flex {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
     // font settings
     font-family: 'Nanum Gothic';
     font-size: 14px;
@@ -53,7 +60,7 @@
         color: material-color('grey', '100');
         &:hover {
             background: material-color('grey', '100');
-            color: material-color('grey', '800');
+            color: material-color('lime', '800');
         }
     }
 

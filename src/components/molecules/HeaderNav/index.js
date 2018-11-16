@@ -15,7 +15,7 @@ const HeaderNav = ({
                 user != null
                     ? <UsernameBox username={user.username} />
                     : <Link to='/login'>
-                        <Button className={cx('header-nav-login-button')} roundCorner transparent shadow>
+                        <Button className={cx('header-nav-login-button')} transparent shadow>
                             로그인
                         </Button>
                     </Link>

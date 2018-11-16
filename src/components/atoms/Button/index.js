@@ -12,6 +12,7 @@ const Button = (
         roundCorner,
         shadow,
         large,
+        flex,
         flexChild,
         onClick
     }
@@ -23,6 +24,7 @@ const Button = (
                 'button-transparent': transparent,
                 'button-shadow': shadow,
                 'button-large': large,
+                'button-flex': flex,
                 'button-flex-child': flexChild
             }, className)}
             onClick={onClick}
