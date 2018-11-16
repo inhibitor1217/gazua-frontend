@@ -31,38 +31,22 @@ const initialState = Map({
 
 // reducers
 export default handleActions({
-    [SET_PHASE]: (state, action) => {
-        return state.set('phase', fromJS(action.payload));
-    },
-    [SET_ERROR]: (state, action) => {
-        return state.set('error', fromJS(action.payload));
-    },
+    [SET_PHASE]: (state, action) => state.set('phase', fromJS(action.payload)),
+    [SET_ERROR]: (state, action) => state.set('error', fromJS(action.payload)),
     [CHANGE_INPUT]: (state, action) => {
         const { name, value } = action.payload;
         return state.setIn(['form', name], value);
     },
     ...pender({
         type: CHECK_EMAIL,
-        onPending: (state, action) => {
-            return state;
-        },
-        onSuccess: (state, action) => {
-            return state;
-        },
-        onFailure: (state, action) => {
-            return state.set('error', fromJS('서버 에러'));
-        }
+        onPending: (state, action) => state,
+        onSuccess: (state, action) => state,
+        onFailure: (state, action) => state.set('error', fromJS('서버 에러'))
     }),
     ...pender({
         type: LOCAL_REGISTER,
-        onPending: (state, action) => {
-            return state;
-        },
-        onSuccess: (state, action) => {
-            return state;
-        },
-        onFailure: (state, action) => {
-            return state.set('error', fromJS('서버 에러'));
-        }
+        onPending: (state, action) => state,
+        onSuccess: (state, action) => state,
+        onFailure: (state, action) => state.set('error', fromJS('서버 에러'))
     })
 }, initialState);

@@ -3,14 +3,22 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { LoginWindow } from 'components';
+import storage from 'lib/storage';
 import * as loginActions from 'store/modules/login';
 import * as userActions from 'store/modules/user';
 
 class LoginWindowContainer extends Component {
     constructor (props) {
         super(props);
+
+        this.componentWillUnmount = this.componentWillUnmount.bind(this);
         this.onChangeInput = this.onChangeInput.bind(this);
         this.onLocalLogin = this.onLocalLogin.bind(this);
+    }
+
+    componentWillUnmount() {
+        const { LoginActions } = this.props;
+        LoginActions.initForm();
     }
 
     onChangeInput (event) {
@@ -37,7 +45,11 @@ class LoginWindowContainer extends Component {
                 email, password
             });
             const { loginResult } = this.props; // { _id, username, email }
-            UserActions.setUser(loginResult);
+            const { _id, username } = loginResult;
+
+            storage.set('__USER__', { _id, username });
+            UserActions.setUser({ _id, username });
+            UserActions.setValidated(true);
 
             this.props.history.push('/');
         } catch (e) {
