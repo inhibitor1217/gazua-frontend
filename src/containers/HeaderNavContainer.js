@@ -6,11 +6,11 @@ import * as userActions from 'store/modules/user';
 
 class HeaderNavContainer extends Component {
     render() {
-        const { user: _user } = this.props;
-        const user = _user ? _user.toJS() : null;
+        const { user, logged } = this.props;
+        const _user = logged ? user.toJS() : null;
         return (
             <div>
-                <HeaderNav user={user} />
+                <HeaderNav user={_user} />
             </div>
         );
     }
@@ -19,7 +19,8 @@ class HeaderNavContainer extends Component {
 export default connect(
     // mapStateToProps
     (state) => ({
-        user: state.user.get('user')
+        user: state.user.get('user'),
+        logged: state.user.get('logged')
     }),
     // mapDispatchToProps
     (dispatch) => ({

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { LoginWindow } from 'components';
 import storage from 'lib/storage';
@@ -76,12 +77,12 @@ class LoginWindowContainer extends Component {
     }
 
     render () {
-        const { form, error } = this.props;
+        const { logged, form, error } = this.props;
         const {
             onChangeInput,
             onLocalLogin
         } = this;
-        return (
+        return logged ? <Redirect to='/' /> : (
             <div>
                 <LoginWindow
                     form={form}
@@ -98,6 +99,7 @@ class LoginWindowContainer extends Component {
 export default withRouter(connect(
     // mapStateToProps
     (state) => ({
+        logged: state.user.get('logged'),
         form: state.login.get('form'),
         error: state.login.get('error'),
         loginResult: state.login.get('loginResult')
