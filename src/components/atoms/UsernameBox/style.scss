@@ -1,0 +1,24 @@
+@import 'styles/utils.scss';
+
+.username-box {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0.3rem 0.7rem 0.3rem 0.7rem;
+    border: 1.5px solid material-color('grey', '100');
+    border-radius: 6px;
+
+    background: transparent;
+
+    .username-box-name {
+        margin: 0 5px;
+        color: material-color('grey', '100');
+        font-family: 'Nanum Gothic';
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+}

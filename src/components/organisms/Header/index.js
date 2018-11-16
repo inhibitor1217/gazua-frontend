@@ -1,7 +1,8 @@
 import React from 'react';
 import style from './style.scss';
 import classNames from 'classnames/bind';
-import { Logo, HeaderNav } from 'components';
+import { Logo } from 'components';
+import HeaderNavContainer from 'containers/HeaderNavContainer';
 import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(style);
@@ -16,7 +17,7 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className={cx('header-right-side')}>
-                    <HeaderNav />
+                    <HeaderNavContainer />
                 </div>
             </div>
         </div>

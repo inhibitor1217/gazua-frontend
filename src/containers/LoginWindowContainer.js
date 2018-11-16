@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { LoginWindow } from 'components';
 import * as loginActions from 'store/modules/login';
+import * as userActions from 'store/modules/user';
 
 class LoginWindowContainer extends Component {
     constructor (props) {
@@ -19,7 +20,7 @@ class LoginWindowContainer extends Component {
     }
 
     async onLocalLogin () {
-        const { LoginActions, form } = this.props;
+        const { LoginActions, UserActions, form } = this.props;
         const { email, password } = form.toJS();
 
         if (email === '') {
@@ -35,8 +36,8 @@ class LoginWindowContainer extends Component {
             await LoginActions.localLogin({
                 email, password
             });
-            const { loginResult } = this.props;
-            // do something with loginResult
+            const { loginResult } = this.props; // { _id, username, email }
+            UserActions.setUser(loginResult);
 
             this.props.history.push('/');
         } catch (e) {
@@ -91,6 +92,7 @@ export default withRouter(connect(
     }),
     // mapDispatchToProps
     (dispatch) => ({
-        LoginActions: bindActionCreators(loginActions, dispatch)
+        LoginActions: bindActionCreators(loginActions, dispatch),
+        UserActions: bindActionCreators(userActions, dispatch)
     })
 )(LoginWindowContainer));
