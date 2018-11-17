@@ -13,10 +13,20 @@ const HeaderNav = ({
         <FlexBox horizontal className={cx('header-nav')}>
             {
                 user != null
-                    ? <UsernameBox username={user.username} />
+                    ? <div className={cx('header-nav-dropdown')}>
+                        <button className={cx('header-nav-dropdown-button')}>
+                            <UsernameBox username={user.username} />
+                        </button>
+                        <div className={cx('header-nav-dropdown-content')}>
+                            <div>마이페이지</div>
+                            <div>로그아웃</div>
+                        </div>
+                    </div>
                     : <Link to='/login'>
-                        <Button className={cx('header-nav-login-button')} transparent shadow>
-                            로그인
+                        <Button transparent shadow>
+                            <div className={cx('header-nav-login-button')}>
+                                로그인
+                            </div>
                         </Button>
                     </Link>
             }

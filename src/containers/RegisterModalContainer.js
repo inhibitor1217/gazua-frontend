@@ -9,10 +9,16 @@ import * as registerActions from 'store/modules/register';
 class RegisterModalContainer extends Component {
     constructor(props) {
         super(props);
+        this.componentWillUnmount = this.componentWillUnmount.bind(this);
         this.handleChangeInput = this.handleChangeInput.bind(this);
         this.handleCheckForm = this.handleCheckForm.bind(this);
         this.handleSwitchPhase = this.handleSwitchPhase.bind(this);
         this.handleRegister = this.handleRegister.bind(this);
+    }
+
+    componentWillUnmount() {
+        const { RegisterActions } = this.props;
+        RegisterActions.initForm();
     }
 
     handleChangeInput(event) {

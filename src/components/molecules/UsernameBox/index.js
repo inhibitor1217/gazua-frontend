@@ -10,10 +10,13 @@ const UsernameBox = ({
 }) => {
     return (
         <div className={cx('username-box')}>
-            <Button transparent shadow flex>
-                <MaterialIcon md18>person</MaterialIcon>
-                <div className={cx('username-box-name')}>
-                    {username}
+            <Button transparent shadow>
+                <div className={cx('username-box-content')}>
+                    <MaterialIcon md18>person</MaterialIcon>
+                    <div className={cx('username-box-name')}>
+                        {username}
+                    </div>
+                    <MaterialIcon md18>arrow_drop_down</MaterialIcon>
                 </div>
             </Button>
         </div>

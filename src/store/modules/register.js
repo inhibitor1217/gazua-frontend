@@ -9,6 +9,7 @@ const SET_ERROR = 'register/SET_ERROR';
 const CHANGE_INPUT = 'register/CHANGE_INPUT';
 const CHECK_EMAIL = 'register/CHECK_EMAIL';
 const LOCAL_REGISTER = 'register/LOCAL_REGISTER';
+const INIT_FORM = 'register/INIT_FORM';
 
 // action creator
 export const setPhase = createAction(SET_PHASE);
@@ -16,6 +17,7 @@ export const setError = createAction(SET_ERROR);
 export const changeInput = createAction(CHANGE_INPUT);
 export const checkEmail = createAction(CHECK_EMAIL, AuthAPI.checkEmail);
 export const localRegister = createAction(LOCAL_REGISTER, AuthAPI.localRegister);
+export const initForm = createAction(INIT_FORM);
 
 // initial state
 const initialState = Map({
@@ -48,5 +50,6 @@ export default handleActions({
         onPending: (state, action) => state,
         onSuccess: (state, action) => state,
         onFailure: (state, action) => state.set('error', fromJS('서버 에러'))
-    })
+    }),
+    [INIT_FORM]: (state, action) => initialState
 }, initialState);

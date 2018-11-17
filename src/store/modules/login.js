@@ -46,7 +46,5 @@ export default handleActions({
         },
         onFailure: (state, action) => state.set('error', fromJS({ error: '서버 에러' }))
     }),
-    [INIT_FORM]: (state, action) =>
-        state.setIn(['form', 'email'], '')
-            .setIn(['form', 'password'], '')
+    [INIT_FORM]: (state, action) => initialState
 }, initialState);
