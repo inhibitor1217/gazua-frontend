@@ -1,9 +1,12 @@
 import React from 'react';
-import { PageTemplate, Header } from 'components';
+import { PageTemplate, ParallaxBackground, Header } from 'components';
 
 const LandingPage = () => {
     return (
-        <PageTemplate header={<Header/>} responsive>
+        <PageTemplate
+            header={<Header />}
+            responsive
+        >
             Landing Page!
         </PageTemplate>
     );
