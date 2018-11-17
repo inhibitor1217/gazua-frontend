@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom';
 const cx = classNames.bind(style);
 
 const HeaderNav = ({
-    user // { _id, username, email }
+    user, // { _id, username, email }
+    onClickLogout
 }) => {
     return (
         <FlexBox horizontal className={cx('header-nav')}>
@@ -19,7 +20,7 @@ const HeaderNav = ({
                         </button>
                         <div className={cx('header-nav-dropdown-content')}>
                             <div>마이페이지</div>
-                            <div>로그아웃</div>
+                            <div onClick={onClickLogout}>로그아웃</div>
                         </div>
                     </div>
                     : <Link to='/login'>

@@ -7,11 +7,13 @@ import * as AuthAPI from 'apis/auth';
 const SET_USER = 'user/SET_USER';
 const SET_VALIDATED = 'user/SET_VALIDATED';
 const CHECK_STATUS = 'user/CHECK_STATUS';
+const LOGOUT = 'user/LOGOUT';
 
 // action creator
 export const setUser = createAction(SET_USER);
 export const setValidated = createAction(SET_VALIDATED);
 export const checkStatus = createAction(CHECK_STATUS, AuthAPI.checkStatus);
+export const logout = createAction(LOGOUT);
 
 // initial state
 const initialState = Map({
@@ -31,5 +33,6 @@ export default handleActions({
             return state.set('user', fromJS(action.payload.data.user)).set('validated', true);
         },
         onFailure: (state, action) => initialState
-    })
+    }),
+    [LOGOUT]: (state, action) => initialState
 }, initialState);
