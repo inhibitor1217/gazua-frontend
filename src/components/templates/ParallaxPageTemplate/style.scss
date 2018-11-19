@@ -1,0 +1,69 @@
+@import 'styles/utils.scss';
+
+.wrapper {
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        flex: none;
+        z-index: $header-z-index;
+    }
+
+    .content {
+
+        position: relative;
+        &.has-header {
+            padding-top: $header-height;
+        }
+        &.responsive {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            @include responsive();
+        }
+
+        height: 100vh;
+        overflow-x: hidden;
+        perspective: 300px;
+
+        .parallax-group {
+
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+
+            .parallax-layer {
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                text-align: center;
+
+                .layer-content {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                }
+
+            }
+
+            .layer-base {
+                transform: translateZ(0);
+            }
+
+            .layer-back {
+                transform: translateZ(-300px);
+            }
+
+            .layer-deep {
+                transform: translateZ(-600px);
+            }
+
+        }
+
+    }
+}
