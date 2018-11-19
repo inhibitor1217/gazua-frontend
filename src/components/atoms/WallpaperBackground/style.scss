@@ -1,12 +1,16 @@
 @import 'styles/utils.scss';
 
 .wallpaper-background {
-    width: 100%;
+    width: 100vw;
     position: relative;
     transition: all .2s ease-in-out;
     overflow: hidden;
+    vertical-align: bottom;
     .wallpaper-background-image {
-        width: 100%;
+        width: 100vw;
+        &.wallpaper-background-expand-height {
+            min-height: 100vh;
+        }
     }
 
     .wallpaper-background-children {

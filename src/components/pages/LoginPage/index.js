@@ -8,7 +8,7 @@ const LoginPage = () => {
         <PageTemplate
             header={<Header />}
             background={
-                <WallpaperBackground background={Wallpaper}>
+                <WallpaperBackground background={Wallpaper} expandHeight>
                     <Media query="(max-width: 1000px)">
                         { matches => !matches && <ContentDivisor shade='left'/> }
                     </Media>

@@ -10,7 +10,9 @@ const PageTemplate = ({ header, background, children, responsive }) => {
             <header>
                 {header}
             </header>
-            <div className={cx('background')}>
+            <div className={cx('background', {
+                'has-header': header
+            })}>
                 {background}
             </div>
             <div className={cx('content', {

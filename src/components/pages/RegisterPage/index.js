@@ -8,7 +8,7 @@ const RegisterPage = () => {
         <PageTemplate
             header={<Header />}
             background={
-                <WallpaperBackground background={Wallpaper}/>
+                <WallpaperBackground background={Wallpaper} expandHeight/>
             }
             responsive>
             <RegisterModalContainer />

@@ -19,6 +19,10 @@
         @include material-shadow(4);
     }
 
+    &.block-transparent {
+        background: rgba(255, 255, 255, 0.5);
+    }
+
     .block {
 
         background: material-color('grey', '100');
@@ -26,6 +30,15 @@
 
         font-family: 'NanumSquare';
         font-weight: 400;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &.block-transparent {
+            background: rgba(255, 255, 255, 0.5);
+        }
 
     }
 
