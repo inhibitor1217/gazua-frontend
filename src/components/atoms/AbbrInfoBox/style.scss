@@ -4,11 +4,11 @@
 
     position: relative;
 
-    min-width: 200px;
+    width: 250px;
 
     font-family: 'NanumSquare';
 
-    padding: .25rem;
+    padding: .5rem;
 
     &.abbr-info-box-border {
         border: 1px solid material-color('grey', '700');
@@ -19,8 +19,8 @@
 
     .abbr-info-box-header {
         position: absolute;
-        top: 0;
-        left: 0;
+        top: .5rem;
+        left: .5rem;
     }
 
     .abbr-info-box-content {

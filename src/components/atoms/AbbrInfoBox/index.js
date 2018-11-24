@@ -7,7 +7,6 @@ const cx = classNames.bind(style);
 const AbbrInfoBox = ({
     dark,
     border,
-    changeType,
     data
 }) => {
     if (!data) data = {};
@@ -45,7 +44,7 @@ const AbbrInfoBox = ({
                     {change}
                 </div>
                 <div className={cx('abbr-info-box-text', 'abbr-info-box-timestamp')}>
-                    {new Date(timestamp).toDateString()} (최근 24시간)
+                    {new Date(timestamp).toLocaleString()} (최근 24시간 기준)
                 </div>
             </div>
         </div>
