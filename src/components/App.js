@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
 import * as userActions from 'store/modules/user';
+import * as tickerActions from 'store/modules/ticker';
+
 import storage from 'lib/storage';
+import { openConnection } from 'lib/socket';
+
 import { DashboardPage, LandingPage, LoginPage, RegisterPage } from 'components';
 
 class App extends Component {
@@ -11,11 +16,43 @@ class App extends Component {
         super(props);
 
         this.componentDidMount = this.componentDidMount.bind(this);
+        this.retrieveTickerInfo = this.retrieveTickerInfo.bind(this);
+        this.configureSocket = this.configureSocket.bind(this);
         this.initializeUser = this.initializeUser.bind(this);
     }
 
     componentDidMount() {
         this.initializeUser();
+        this.configureSocket();
+        this.retrieveTickerInfo();
+    }
+
+    retrieveTickerInfo() {
+        const { TickerActions } = this.props;
+        const currencyPairs = ['btc_krw', 'etc_krw', 'eth_krw', 'xrp_krw', 'bch_krw', 'ltc_krw'];
+        currencyPairs.forEach(async (currencyPair) => {
+            try {
+                await TickerActions.setTicker({ currencyPair });
+            } catch (e) {
+                console.log(e);
+            }
+        });
+    }
+
+    configureSocket() {
+        // socket configuration
+        const socket = openConnection();
+        const { TickerActions } = this.props;
+        // ticker update notification
+        socket.on('ticker', async (msg) => {
+            try {
+                await TickerActions.setTicker({
+                    currencyPair: msg
+                });
+            } catch (e) {
+                console.log(e);
+            }
+        });
     }
 
     async initializeUser() {
@@ -49,6 +86,7 @@ class App extends Component {
 export default connect(
     null,
     (dispatch) => ({
-        UserActions: bindActionCreators(userActions, dispatch)
+        UserActions: bindActionCreators(userActions, dispatch),
+        TickerActions: bindActionCreators(tickerActions, dispatch)
     })
 )(App);

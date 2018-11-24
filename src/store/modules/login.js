@@ -38,7 +38,6 @@ export default handleActions({
         type: LOCAL_LOGIN,
         onPending: (state, action) => state,
         onSuccess: (state, action) => {
-            console.log(action.payload);
             const loginResult = action.payload.data;
             return state
                 .set('loginResult', loginResult)
