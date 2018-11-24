@@ -58,7 +58,7 @@ class App extends Component {
                         currencyPair: msg,
                         value: false
                     });
-                }, 1000);
+                }, 3000);
             } catch (e) {
                 console.log(e);
             }
