@@ -49,6 +49,16 @@ class App extends Component {
                 await TickerActions.setTicker({
                     currencyPair: msg
                 });
+                TickerActions.setHighlight({
+                    currencyPair: msg,
+                    value: true
+                });
+                setTimeout(() => {
+                    TickerActions.setHighlight({
+                        currencyPair: msg,
+                        value: false
+                    });
+                }, 1000);
             } catch (e) {
                 console.log(e);
             }

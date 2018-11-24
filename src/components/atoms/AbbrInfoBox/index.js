@@ -7,6 +7,7 @@ const cx = classNames.bind(style);
 const AbbrInfoBox = ({
     dark,
     border,
+    highlight,
     data
 }) => {
     if (!data) data = {};
@@ -20,7 +21,8 @@ const AbbrInfoBox = ({
     return (
         <div className={cx('abbr-info-box', {
             'abbr-info-box-border': border,
-            'abbr-info-box-dark': dark
+            'abbr-info-box-dark': dark,
+            'abbr-info-box-highlight': highlight
         })}>
             <div className={cx('abbr-info-box-header')}>
                 {currencyAbbr}/KRW

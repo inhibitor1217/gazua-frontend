@@ -16,23 +16,32 @@ const currencyPairToAbbr = {
 
 const AbbrInfoPanel = ({
     dark,
-    data
+    data,
+    highlights
 }) => {
     const processedData = {};
     for (let currencyPair in currencyPairToAbbr) {
         data[currencyPair].currencyAbbr = currencyPairToAbbr[currencyPair];
     }
+    const {
+        'btc_krw': hBTC,
+        'etc_krw': hETC,
+        'eth_krw': hETH,
+        'xrp_krw': hXRP,
+        'bch_krw': hBCH,
+        'ltc_krw': hLTC
+    } = highlights.toJS();
     return (
         <div className={cx('abbr-info-panel')}>
             <div className={cx('abbr-info-panel-horizontal')}>
-                <AbbrInfoBox dark={dark} data={data['btc_krw']}/>
-                <AbbrInfoBox dark={dark} data={data['etc_krw']}/>
-                <AbbrInfoBox dark={dark} data={data['eth_krw']}/>
+                <AbbrInfoBox dark={dark} highlight={hBTC} data={data['btc_krw']}/>
+                <AbbrInfoBox dark={dark} highlight={hETC} data={data['etc_krw']}/>
+                <AbbrInfoBox dark={dark} highlight={hETH} data={data['eth_krw']}/>
             </div>
             <div className={cx('abbr-info-panel-horizontal')}>
-                <AbbrInfoBox dark={dark} data={data['xrp_krw']}/>
-                <AbbrInfoBox dark={dark} data={data['bch_krw']}/>
-                <AbbrInfoBox dark={dark} data={data['ltc_krw']}/>
+                <AbbrInfoBox dark={dark} highlight={hXRP} data={data['xrp_krw']}/>
+                <AbbrInfoBox dark={dark} highlight={hBCH} data={data['bch_krw']}/>
+                <AbbrInfoBox dark={dark} highlight={hLTC} data={data['ltc_krw']}/>
             </div>
         </div>
     );

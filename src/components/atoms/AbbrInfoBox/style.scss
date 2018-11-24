@@ -1,5 +1,15 @@
 @import 'styles/utils.scss';
 
+@keyframes highlight-default {
+    from { background: material-color('grey', '300'); }
+    to   { background: material-color('grey', '100') }
+}
+
+@keyframes highlight-dark {
+    from { background: material-color('grey', '700'); }
+    to   { background: material-color('grey', '900') }
+}
+
 .abbr-info-box {
 
     position: relative;
@@ -9,11 +19,26 @@
     font-family: 'NanumSquare';
 
     padding: .5rem;
+    
+    &.abbr-info-box-highlight {
+        animation-name: highlight-default;
+        &.abbr-info-box-dark {
+            animation-name: highlight-dark;
+        }
+        animation-duration: 1s;
+    }
 
     &.abbr-info-box-border {
         border: 1px solid material-color('grey', '700');
         &.abbr-info-box-dark {
             border: 1px solid material-color('grey', '300');
+        }
+    }
+
+    &:hover {
+        background: material-color('grey', '200');
+        &.abbr-info-box-dark {
+            background: material-color('grey', '800');
         }
     }
 

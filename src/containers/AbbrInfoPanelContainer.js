@@ -5,11 +5,11 @@ import { AbbrInfoPanel } from 'components';
 
 class AbbrInfoPanelContainer extends Component {
     render() {
-        const { dark, tickers } = this.props;
+        const { dark, tickers, highlights } = this.props;
         const data = tickers.toJS();
         return (
             <div>
-                <AbbrInfoPanel dark={dark} data={data}/>
+                <AbbrInfoPanel dark={dark} data={data} highlights={highlights}/>
             </div>
         );
     }
@@ -19,7 +19,8 @@ class AbbrInfoPanelContainer extends Component {
 export default connect(
     // mapStateToProps
     (state) => ({
-        tickers: state.ticker.get('tickers')
+        tickers: state.ticker.get('tickers'),
+        highlights: state.ticker.get('highlights')
     }),
     // mapDispatchToProps
     (dispatch) => ({
