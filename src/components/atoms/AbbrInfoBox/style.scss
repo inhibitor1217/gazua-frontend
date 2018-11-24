@@ -1,0 +1,95 @@
+@import 'styles/utils.scss';
+
+.abbr-info-box {
+
+    position: relative;
+
+    min-width: 200px;
+
+    font-family: 'NanumSquare';
+
+    padding: .25rem;
+
+    &.abbr-info-box-border {
+        border: 1px solid material-color('grey', '700');
+        &.abbr-info-box-dark {
+            border: 1px solid material-color('grey', '300');
+        }
+    }
+
+    .abbr-info-box-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .abbr-info-box-content {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        text-align: right;
+
+        .abbr-info-box-text {
+            color: black;
+            &.changetype-positive {
+                color: material-color('light-green', '800');
+            }
+            &.changetype-neutral {
+                color: material-color('grey', '700');
+            }
+            &.changetype-negative {
+                color: material-color('red', '700');
+            }
+        }
+
+        .abbr-info-box-changepercent {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .abbr-info-box-last {
+            margin-top: .5rem;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .abbr-info-box-change {
+            font-size: 16px;
+            margin-bottom: .5rem;
+            font-weight: 700;
+        }
+
+        .abbr-info-box-timestamp {
+            font-size: 10px;
+            color: material-color('grey', '500');
+        }
+
+    }
+
+    &.abbr-info-box-dark {
+        .abbr-info-box-header {
+            color: material-color('grey', '100');
+        }
+        .abbr-info-box-content {
+            .abbr-info-box-text {
+                color: material-color('grey', '100');
+                &.changetype-positive {
+                    color: material-color('light-green', '400');
+                }
+                &.changetype-neutral {
+                    color: material-color('grey', '400');
+                }
+                &.changetype-negative {
+                    color: material-color('red', '400');
+                }
+            }
+            .abbr-info-box-timestamp {
+                font-size: 10px;
+                color: material-color('grey', '500');
+            }
+        }
+    }
+
+}

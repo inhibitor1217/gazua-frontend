@@ -23,6 +23,10 @@
         background: rgba(255, 255, 255, 0.5);
     }
 
+    &.block-dark {
+        background: material-color('grey', '900');
+    }
+
     .block {
 
         background: material-color('grey', '100');
@@ -38,6 +42,10 @@
 
         &.block-transparent {
             background: rgba(255, 255, 255, 0.5);
+        }
+
+        &.block-dark {
+            background: material-color('grey', '900');
         }
 
     }
