@@ -99,7 +99,7 @@ class RegisterModalContainer extends Component {
             handleSwitchPhase(3)();
         } catch (e) {
             console.log(e);
-            RegisterActions.setError({ error: '서버 에러' });
+            RegisterActions.setError('서버 에러');
         }
     }
 

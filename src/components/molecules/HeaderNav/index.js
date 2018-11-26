@@ -19,7 +19,9 @@ const HeaderNav = ({
                             <UsernameBox username={user.username} />
                         </button>
                         <div className={cx('header-nav-dropdown-content')}>
-                            <div>마이페이지</div>
+                            <Link to='/dashboard'>
+                                <div>대시보드</div>
+                            </Link>
                             <div onClick={onClickLogout}>로그아웃</div>
                         </div>
                     </div>

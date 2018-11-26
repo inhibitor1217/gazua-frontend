@@ -1,6 +1,7 @@
 @import 'styles/utils.scss';
 
 .wrapper {
+    background: material-color('grey', '300');
     header {
         position: fixed;
         top: 0;

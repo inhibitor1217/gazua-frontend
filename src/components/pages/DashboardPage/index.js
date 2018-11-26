@@ -1,10 +1,18 @@
 import React from 'react';
+import {
+    PageTemplate,
+    Header,
+    OverviewPanel
+} from 'components';
 
 const DashboardPage = () => {
     return (
-        <div>
-            Dashboard Page!
-        </div>
+        <PageTemplate
+            header={<Header />}
+            responsive
+        >
+            <OverviewPanel />
+        </PageTemplate>
     );
 };
 

@@ -12,7 +12,10 @@
     .header-nav-dropdown {
 
         float: left;
-        display: relative;
+
+        a {
+            text-decoration: none;
+        }
 
         cursor: pointer;
 
