@@ -8,6 +8,7 @@ const AbbrInfoBox = ({
     dark,
     border,
     highlight,
+    expand,
     data
 }) => {
     if (!data) data = {};
@@ -23,10 +24,13 @@ const AbbrInfoBox = ({
         <div className={cx('abbr-info-box', {
             'abbr-info-box-border': border,
             'abbr-info-box-dark': dark,
-            'abbr-info-box-highlight': highlight
+            'abbr-info-box-highlight': highlight,
+            'abbr-info-box-expand': expand
         })}>
             <div className={cx('abbr-info-box-header')}>
-                {currencyAbbr}/KRW
+                {
+                    currencyAbbr === 'custom' ? '총 자산' : `${currencyAbbr}/KRW`
+                }
             </div>
             <div className={cx('abbr-info-box-content')}>
                 <div className={cx('abbr-info-box-text', 'abbr-info-box-changepercent', {

@@ -15,6 +15,9 @@
     position: relative;
 
     width: 250px;
+    &.abbr-info-box-expand {
+        width: 100%;
+    }
 
     font-family: 'NanumSquare';
 

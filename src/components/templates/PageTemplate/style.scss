@@ -1,7 +1,6 @@
 @import 'styles/utils.scss';
 
 .wrapper {
-    background: material-color('grey', '300');
     header {
         position: fixed;
         top: 0;
@@ -12,6 +11,7 @@
     }
     .background {
         position: fixed;
+        background: material-color('grey', '300');
         min-width: 100%;
         min-height: 100vh;
         display: flex;

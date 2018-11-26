@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './style.scss';
 import classnames from 'classnames/bind';
-import { Block } from 'components';
+import { Block, AbbrInfoBox } from 'components';
 
 const cx = classnames.bind(style);
 
@@ -42,7 +42,17 @@ const AssetPanel = () => {
                 </div>
                 <div className={cx('asset-total')}>
                     <Block dark shadow customMargin>
-                        총 자산 + 수익률
+                        <AbbrInfoBox
+                            dark
+                            expand
+                            data={{
+                                currencyAbbr: 'custom',
+                                last: 'user_userdata_wallet_total',
+                                change: 'user_userdata_wallet_change',
+                                changePercent: 'user_userdata_wallet_changePercent',
+                                timestamp: 'user_userdata_wallet_lastUpdated'
+                            }}
+                        />
                     </Block>
                 </div>
             </div>
