@@ -41,9 +41,8 @@ const AssetPanel = () => {
                     <div className={cx('asset-unit', 'unit')}>LTC</div>
                 </div>
                 <div className={cx('asset-total')}>
-                    <Block dark shadow customMargin>
+                    <Block shadow customMargin>
                         <AbbrInfoBox
-                            dark
                             expand
                             data={{
                                 currencyAbbr: 'custom',

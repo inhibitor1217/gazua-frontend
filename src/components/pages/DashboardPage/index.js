@@ -1,9 +1,9 @@
 import React from 'react';
 import {
     PageTemplate,
-    Header,
-    OverviewPanel
+    Header
 } from 'components';
+import OverviewPanelContainer from 'containers/OverviewPanelContainer';
 
 const DashboardPage = () => {
     return (
@@ -11,7 +11,7 @@ const DashboardPage = () => {
             header={<Header />}
             responsive
         >
-            <OverviewPanel />
+            <OverviewPanelContainer />
         </PageTemplate>
     );
 };

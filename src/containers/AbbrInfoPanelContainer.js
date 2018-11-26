@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { AbbrInfoPanel } from 'components';
 
 class AbbrInfoPanelContainer extends Component {
@@ -21,9 +20,5 @@ export default connect(
     (state) => ({
         tickers: state.ticker.get('tickers'),
         highlights: state.ticker.get('highlights')
-    }),
-    // mapDispatchToProps
-    (dispatch) => ({
-
     })
 )(AbbrInfoPanelContainer);
