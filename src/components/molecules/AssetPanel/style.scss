@@ -1,0 +1,57 @@
+@import 'styles/utils.scss';
+
+.asset-panel {
+
+    background: material-color('grey', '300');
+    padding: 1rem;
+
+    width: 400px;
+
+    .asset-panel-header {
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .asset-panel-content {
+
+        padding-top: 1rem;
+
+        .asset-display {
+            padding-top: .5rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: flex-end;
+            .unit {
+                margin-left: .5rem;
+            }
+            .asset-number {
+                font-size: 20px;
+                &.num-krw {
+                    font-size: 26px;
+                    color: material-color('blue', '900');
+                }
+            }
+            .asset-unit {
+                color: material-color('grey', '700');
+                font-size: 16px;
+                &.unit-krw {
+                    font-size: 18px;
+                    color: material-color('grey', '900');
+                }
+            }
+        }
+
+        .krw {
+            padding-bottom: 1rem;
+            border-bottom: 1px solid material-color('grey', '400');
+        }
+
+        .asset-total {
+            margin-top: 1rem;
+            color: material-color('grey', '100');
+        }
+
+    }
+
+}

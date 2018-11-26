@@ -10,6 +10,9 @@
     box-sizing: content-box;
 
     margin: 1rem;
+    &.block-custom-margin {
+        margin: 0;
+    }
 
     &.block-round-corner {
         border-radius: 6px;

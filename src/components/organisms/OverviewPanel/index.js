@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './style.scss';
 import classNames from 'classnames/bind';
-import { Block } from 'components';
+import { Block, AssetPanel } from 'components';
 
 const cx = classNames.bind(style);
 
@@ -16,7 +16,7 @@ const OverviewPanel = () => {
                     </div>
                     <div className={cx('overview-panel-content')}>
                         <div className={cx('overview-panel-content-box')}>
-                            자산
+                            <AssetPanel />
                         </div>
                         <div className={cx('overview-panel-content-box')}>
                             차트

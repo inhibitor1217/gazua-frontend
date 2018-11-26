@@ -18,6 +18,7 @@ const AbbrInfoBox = ({
         changePercent,
         timestamp
     } = data;
+    const lastFormattedString = last ? last.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : last;
     return (
         <div className={cx('abbr-info-box', {
             'abbr-info-box-border': border,
@@ -36,7 +37,7 @@ const AbbrInfoBox = ({
                     {changePercent}%
                 </div>
                 <div className={cx('abbr-info-box-text', 'abbr-info-box-last')}>
-                    {last}
+                    {lastFormattedString}
                 </div>
                 <div className={cx('abbr-info-box-text', 'abbr-info-box-change', {
                     'changetype-positive': changePercent > 0.1,
