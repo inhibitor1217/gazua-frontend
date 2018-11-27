@@ -5,18 +5,22 @@ import { Block, AssetPanel } from 'components';
 
 const cx = classNames.bind(style);
 
-const OverviewPanel = () => {
+const OverviewPanel = ({
+    user,
+    wallet
+}) => {
+    const { username } = user;
     return (
         <div className={cx('overview-panel')}>
             <Block shadow>
                 <div className={cx('overview-panel-wrapper')}>
                     <div className={cx('overview-panel-header')}>
                         <div className={cx('overview-panel-header-title')}>개요</div>
-                        <div className={cx('overview-panel-header-username')}>[user_username]</div>
+                        <div className={cx('overview-panel-header-username')}>{username}</div>
                     </div>
                     <div className={cx('overview-panel-content')}>
                         <div className={cx('overview-panel-content-box')}>
-                            <AssetPanel />
+                            <AssetPanel wallet={wallet}/>
                         </div>
                         <div className={cx('overview-panel-content-box')}>
                             차트
