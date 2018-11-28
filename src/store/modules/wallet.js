@@ -5,9 +5,11 @@ import * as walletAPI from 'apis/wallet';
 
 // action types
 const SET_WALLET = 'wallet/SET_WALLET';
+const LOGOUT = 'wallet/LOGOUT';
 
 // action creator
 export const setWallet = createAction(SET_WALLET, walletAPI.wallet);
+export const logout = createAction(LOGOUT);
 
 // initial state
 const initialState = Map({
@@ -35,5 +37,6 @@ export default handleActions({
             return newState;
         },
         onFailure: (state, action) => state
-    })
+    }),
+    [LOGOUT]: (state, action) => initialState
 }, initialState);

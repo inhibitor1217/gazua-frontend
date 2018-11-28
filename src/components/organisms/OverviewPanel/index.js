@@ -7,7 +7,8 @@ const cx = classNames.bind(style);
 
 const OverviewPanel = ({
     user,
-    wallet
+    wallet,
+    history
 }) => {
     const { username } = user;
     return (
@@ -20,7 +21,7 @@ const OverviewPanel = ({
                     </div>
                     <div className={cx('overview-panel-content')}>
                         <div className={cx('overview-panel-content-box')}>
-                            <AssetPanel wallet={wallet}/>
+                            <AssetPanel wallet={wallet} history={history}/>
                         </div>
                         <div className={cx('overview-panel-content-box')}>
                             차트

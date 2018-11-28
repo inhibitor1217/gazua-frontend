@@ -61,6 +61,7 @@ const RegisterWindow = ({
                         </div>
                         : <div className={cx('register-window-complete')}>
                             <h3>회원가입이 완료되었습니다.</h3>
+                            <h4>신규 회원에게는 1,000,000 KRW가 제공됩니다!</h4>
                             <div>
                                 <Link to='/login'>
                                     <Button

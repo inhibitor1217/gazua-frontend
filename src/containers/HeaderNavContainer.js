@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux';
 import { HeaderNav } from 'components';
 import storage from 'lib/storage';
 import * as userActions from 'store/modules/user';
+import * as walletActions from 'store/modules/wallet';
+import * as historyActions from 'store/modules/history';
 
 class HeaderNavContainer extends Component {
     constructor(props) {
@@ -13,8 +15,10 @@ class HeaderNavContainer extends Component {
     }
 
     handleLogout() {
-        const { UserActions } = this.props;
+        const { UserActions, WalletActions, HistoryActions } = this.props;
         UserActions.logout();
+        WalletActions.logout();
+        HistoryActions.logout();
         storage.remove('__USER__');
     }
 
@@ -41,6 +45,8 @@ export default connect(
     }),
     // mapDispatchToProps
     (dispatch) => ({
-        UserActions: bindActionCreators(userActions, dispatch)
+        UserActions: bindActionCreators(userActions, dispatch),
+        WalletActions: bindActionCreators(walletActions, dispatch),
+        HistoryActions: bindActionCreators(historyActions, dispatch)
     })
 )(HeaderNavContainer);

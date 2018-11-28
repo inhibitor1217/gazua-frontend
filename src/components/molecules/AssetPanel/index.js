@@ -5,11 +5,22 @@ import { Block, AbbrInfoBox } from 'components';
 
 const cx = classnames.bind(style);
 
-const AssetPanel = ({ wallet }) => {
+const AssetPanel = ({ wallet, history }) => {
     const formattedStrings = {};
     for (let key in wallet) {
         formattedStrings[key] = wallet[key] ? wallet[key].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : wallet[key];
     }
+
+    const { wallet: walletHistory } = history;
+    const { last, yesterday } = walletHistory;
+    const lastTotal = last && last.total;
+    const lastTimestamp = last && last.timestamp;
+    const lastTotalFormattedString = lastTotal ? lastTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : lastTotal;
+
+    const yesterdayTotal = yesterday && yesterday.total;
+    const change = yesterday ? lastTotal - yesterdayTotal : '(자산 변화는 가입 후 약 24시간이 지나야 측정됩니다.)';
+    const changePercent = yesterday ? change / lastTotal : '- ';
+
     return (
         <div className={cx('asset-panel')}>
             <div className={cx('asset-panel-header')}>
@@ -50,10 +61,10 @@ const AssetPanel = ({ wallet }) => {
                             expand
                             data={{
                                 currencyAbbr: 'custom',
-                                last: 'user_userdata_wallet_total',
-                                change: 'user_userdata_wallet_change',
-                                changePercent: 'user_userdata_wallet_changePercent',
-                                timestamp: 'user_userdata_wallet_lastUpdated'
+                                last: lastTotalFormattedString,
+                                change,
+                                changePercent,
+                                timestamp: lastTimestamp
                             }}
                         />
                     </Block>
