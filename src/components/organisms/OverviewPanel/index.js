@@ -10,7 +10,7 @@ const OverviewPanel = ({
     wallet,
     history
 }) => {
-    const { username } = user;
+    const username = user && user.username;
     return (
         <div className={cx('overview-panel')}>
             <Block shadow>

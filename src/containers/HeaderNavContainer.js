@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { HeaderNav } from 'components';
+import { withRouter } from 'react-router';
 import storage from 'lib/storage';
 import * as userActions from 'store/modules/user';
 import * as walletActions from 'store/modules/wallet';
@@ -20,6 +21,7 @@ class HeaderNavContainer extends Component {
         WalletActions.logout();
         HistoryActions.logout();
         storage.remove('__USER__');
+        this.props.history.push('/login');
     }
 
     render() {
@@ -37,7 +39,7 @@ class HeaderNavContainer extends Component {
     }
 }
 
-export default connect(
+export default withRouter(connect(
     // mapStateToProps
     (state) => ({
         user: state.user.get('user'),
@@ -49,4 +51,4 @@ export default connect(
         WalletActions: bindActionCreators(walletActions, dispatch),
         HistoryActions: bindActionCreators(historyActions, dispatch)
     })
-)(HeaderNavContainer);
+)(HeaderNavContainer));

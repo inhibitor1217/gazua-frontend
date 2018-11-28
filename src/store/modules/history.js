@@ -11,6 +11,7 @@ const LOGOUT = 'history/LOGOUT';
 // action creator
 export const setLastHistory = createAction(SET_LAST_HISTORY, historyAPI.lastHistory);
 export const setYesterdayHistory = createAction(SET_YESTERDAY_HISTORY, historyAPI.yesterdayHistory);
+export const logout = createAction(LOGOUT);
 
 // initial state
 const initialState = Map({
