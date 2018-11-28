@@ -32,9 +32,7 @@ class OverviewPanelContainer extends Component {
         const _wallet = wallet ? wallet.toJS() : null;
         const _history = userHistory ? userHistory.toJS() : null;
         return (
-            <div>
-                <OverviewPanel user={user} wallet={_wallet} history={_history}/>
-            </div>
+            <OverviewPanel user={user} wallet={_wallet} history={_history}/>
         );
     }
 }

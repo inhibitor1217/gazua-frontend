@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './style.scss';
 import classNames from 'classnames/bind';
-import { Block, AssetPanel } from 'components';
+import { Block, AssetPanel, AssetChartPanel, TradeOverviewPanel } from 'components';
 
 const cx = classNames.bind(style);
 
@@ -24,10 +24,10 @@ const OverviewPanel = ({
                             <AssetPanel wallet={wallet} history={history}/>
                         </div>
                         <div className={cx('overview-panel-content-box')}>
-                            차트
+                            <AssetChartPanel />
                         </div>
                         <div className={cx('overview-panel-content-box')}>
-                            최근 거래 내역
+                            <TradeOverviewPanel />
                         </div>
                     </div>
                 </div>

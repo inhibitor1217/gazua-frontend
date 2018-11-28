@@ -27,9 +27,12 @@
         }
 
         .overview-panel-content {
+
             display: flex;
             flex-direction: row;
             align-items: stretch;
+            overflow-x: scroll;
+            
             .overview-panel-content-box {
                 padding-right: 1rem;
             }
@@ -37,6 +40,7 @@
                 padding-left: 1rem;
                 border-left: 1px solid material-color('grey', '400');
             }
+
         }
 
     }
