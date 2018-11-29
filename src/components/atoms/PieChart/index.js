@@ -4,13 +4,13 @@ import { VictoryLabel, VictoryTooltip, VictoryPie } from 'victory';
 class CustomFlyout extends Component {
     render() {
         const { x, y, datum } = this.props;
-        const { y: asset, startAngle, endAngle } = datum;
+        const { _y: asset, startAngle, endAngle } = datum;
         const percentage = (endAngle - startAngle) * 100 / 360.0;
         return (
             <g>
                 <text x={x} y={y}>
-                    <tspan x={x} y={y} text-anchor='middle'>{asset.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</tspan>
-                    <tspan x={x} y={y + 20} fill='gray' font-size='10' text-anchor='middle'>{percentage.toFixed(2)}%</tspan>
+                    <tspan x={x} y={y} textAnchor='middle'>{asset.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</tspan>
+                    <tspan x={x} y={y + 20} fill='gray' fontSize='10' textAnchor='middle'>{percentage.toFixed(2)}%</tspan>
                 </text>
             </g>
         );
@@ -47,7 +47,6 @@ const PieChart = ({ data }) => {
             labelComponent={<CustomLabel />}
             colorScale="qualitative"
             style={{ labels: { fontSize: 8, fontFamily: 'NanumSquare', fontWeight: 'bold' } }}
-            animate={{ duration: 500 }}
             events={[
                 {
                     target: 'data',

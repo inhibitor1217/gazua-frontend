@@ -7,12 +7,6 @@ const cx = classnames.bind(style);
 
 const AssetChartPanel = ({ wallet, tickers }) => {
     const data = [];
-    wallet = {
-        'krw': 5000000,
-        'btc_krw': 1,
-        'eth_krw': 3,
-        'xrp_krw': 1000
-    };
     if (wallet) {
         data.push({ y: wallet['krw'], label: 'KRW' });
     }
