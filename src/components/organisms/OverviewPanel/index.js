@@ -8,7 +8,8 @@ const cx = classNames.bind(style);
 const OverviewPanel = ({
     user,
     wallet,
-    history
+    history,
+    tickers
 }) => {
     const username = user && user.username;
     return (
@@ -24,7 +25,7 @@ const OverviewPanel = ({
                             <AssetPanel wallet={wallet} history={history}/>
                         </div>
                         <div className={cx('overview-panel-content-box')}>
-                            <AssetChartPanel />
+                            <AssetChartPanel wallet={wallet} tickers={tickers}/>
                         </div>
                         <div className={cx('overview-panel-content-box')}>
                             <TradeOverviewPanel />

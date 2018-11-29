@@ -32,6 +32,7 @@
             flex-direction: row;
             align-items: stretch;
             overflow-x: scroll;
+            overflow-y: hidden;
             
             .overview-panel-content-box {
                 padding-right: 1rem;

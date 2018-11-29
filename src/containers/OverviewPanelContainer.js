@@ -27,12 +27,13 @@ class OverviewPanelContainer extends Component {
     }
 
     render() {
-        const { wallet, userHistory } = this.props;
+        const { wallet, userHistory, tickers } = this.props;
         const user = storage.get('__USER__');
         const _wallet = wallet ? wallet.toJS() : null;
         const _history = userHistory ? userHistory.toJS() : null;
+        const _tickers = tickers ? tickers.toJS() : null;
         return (
-            <OverviewPanel user={user} wallet={_wallet} history={_history}/>
+            <OverviewPanel user={user} wallet={_wallet} history={_history} tickers={_tickers}/>
         );
     }
 }
@@ -43,7 +44,8 @@ export default withRouter(connect(
     (state) => ({
         logoutFlag: state.user.get('logoutFlag'),
         wallet: state.wallet,
-        userHistory: state.history
+        userHistory: state.history,
+        tickers: state.ticker.get('tickers')
     }),
     (dispatch) => ({
         WalletActions: bindActionCreators(walletActions, dispatch),
