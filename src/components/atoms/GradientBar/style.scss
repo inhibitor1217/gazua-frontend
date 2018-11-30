@@ -6,4 +6,10 @@
         material-color('cyan', '400'),
         material-color('light-green', '400'),
         material-color('lime', '400'));
+    &.warm {
+        background: linear-gradient(to right, 
+        material-color('orange', '400'),
+        material-color('yellow', '400'),
+        material-color('red', '400'));
+    }
 }

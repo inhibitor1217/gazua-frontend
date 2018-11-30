@@ -1,0 +1,41 @@
+@import 'styles/utils.scss';
+
+.tabs {
+
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+
+    .tab-list {
+
+        display: flex;
+        flex-direction: row;
+
+        .tab-list-item {
+            display: inline-block;
+            padding: 0.5rem 0.75rem;
+            background: material-color('grey', '100');
+            border: material-color('grey', '400');
+        }
+        
+        .tab-list-active {
+            background: material-color('grey', '400');
+            border: material-color('grey', '100');
+        }
+        
+        @include material-shadow(2);
+        z-index: 10;
+
+    }
+
+    .tab-content {
+
+        background: material-color('grey', '300');
+        padding: 1rem;
+
+        height: 500px;
+        overflow: auto;
+
+    }
+
+}

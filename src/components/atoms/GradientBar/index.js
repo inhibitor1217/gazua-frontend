@@ -4,9 +4,9 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(style);
 
-const GradientBar = () => {
+const GradientBar = ({ warm }) => {
     return (
-        <div className={cx('gradient-bar')}></div>
+        <div className={cx('gradient-bar', { warm })}></div>
     );
 };
 
