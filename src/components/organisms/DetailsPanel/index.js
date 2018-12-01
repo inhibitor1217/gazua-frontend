@@ -1,10 +1,11 @@
 import React from 'react';
 import style from './style.scss';
 import classNames from 'classnames/bind';
-import { Block, GradientBar, Tabs, AbbrInfoBox } from 'components';
+import { Block, GradientBar, Tabs, AbbrInfoBox, CurrencyDetailsPanel } from 'components';
 
 const cx = classNames.bind(style);
 
+const currencyPairs = ['btc_krw', 'etc_krw', 'eth_krw', 'xrp_krw', 'bch_krw', 'ltc_krw'];
 const currencyPairToAbbr = {
     'btc_krw': 'BTC',
     'etc_krw': 'ETC',
@@ -29,48 +30,19 @@ const DetailsPanel = ({ data }) => {
                     <Tabs>
                         <div label='가상화폐 정보'>
                             <Tabs vertical customPadding>
-                                <div label='BTC' tabcomponent={
-                                    <Block transparent customMargin>
-                                        <AbbrInfoBox data={data['btc_krw']}/>
-                                    </Block>
-                                }>
-                                    BTC
-                                </div>
-                                <div label='ETC' tabcomponent={
-                                    <Block transparent customMargin>
-                                        <AbbrInfoBox data={data['etc_krw']}/>
-                                    </Block>
-                                }>
-                                    ETC
-                                </div>
-                                <div label='ETH' tabcomponent={
-                                    <Block transparent customMargin>
-                                        <AbbrInfoBox data={data['eth_krw']}/>
-                                    </Block>
-                                }>
-                                    ETH
-                                </div>
-                                <div label='XRP' tabcomponent={
-                                    <Block transparent customMargin>
-                                        <AbbrInfoBox data={data['xrp_krw']}/>
-                                    </Block>
-                                }>
-                                    XRP
-                                </div>
-                                <div label='BCH' tabcomponent={
-                                    <Block transparent customMargin>
-                                        <AbbrInfoBox data={data['bch_krw']}/>
-                                    </Block>
-                                }>
-                                    BCH
-                                </div>
-                                <div label='LTC' tabcomponent={
-                                    <Block transparent customMargin>
-                                        <AbbrInfoBox data={data['ltc_krw']}/>
-                                    </Block>
-                                }>
-                                    LTC
-                                </div>
+                                {
+                                    currencyPairs.map((currencyPair) => {
+                                        return (
+                                            <div label={currencyPairToAbbr[currencyPair]} tabcomponent={
+                                                <Block transparent customMargin>
+                                                    <AbbrInfoBox data={data[currencyPair]}/>
+                                                </Block>
+                                            }>
+                                                {<CurrencyDetailsPanel currencyPair={currencyPair} />}
+                                            </div>
+                                        );
+                                    })
+                                }
                             </Tabs>
                         </div>
                         <div label='거래 내역'>

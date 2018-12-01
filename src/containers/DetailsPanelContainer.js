@@ -8,10 +8,15 @@ class DetailsPanelContainer extends Component {
     constructor(props) {
         super(props);
 
-        this.componentWillMount = this.componentWillMount.bind(this);
+        this.retrieveData = this.retrieveData.bind(this);
     }
 
-    async componentWillMount() {
+    componentWillMount() {
+        const { retrieveData } = this;
+        retrieveData();
+    }
+
+    async retrieveData() {
         const { TickerActions } = this.props;
         const currencyPairs = ['btc_krw', 'etc_krw', 'eth_krw', 'xrp_krw', 'bch_krw', 'ltc_krw'];
         currencyPairs.forEach(async (currencyPair) => {
