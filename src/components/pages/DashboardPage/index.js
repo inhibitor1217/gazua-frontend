@@ -1,10 +1,10 @@
 import React from 'react';
 import {
     PageTemplate,
-    Header,
-    DetailsPanel
+    Header
 } from 'components';
 import OverviewPanelContainer from 'containers/OverviewPanelContainer';
+import DetailsPanelContainer from 'containers/DetailsPanelContainer';
 
 const DashboardPage = () => {
     return (
@@ -13,7 +13,7 @@ const DashboardPage = () => {
             responsive
         >
             <OverviewPanelContainer />
-            <DetailsPanel />
+            <DetailsPanelContainer />
         </PageTemplate>
     );
 };

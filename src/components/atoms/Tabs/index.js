@@ -15,13 +15,16 @@ class Tab extends Component {
         onClick(label);
     }
     render() {
-        const { onClick, props: { activeTab, label } } = this;
+        const { onClick, props: { activeTab, label, tabcomponent = label, customPadding } } = this;
         return (
             <div
-                className={cx('tab-list-item', { 'tab-list-active': activeTab === label })}
+                className={cx('tab-list-item', {
+                    'tab-list-active': activeTab === label,
+                    'tab-list-custom-padding': customPadding
+                })}
                 onClick={onClick}
             >
-                {label}
+                {tabcomponent}
             </div>
         );
     }
@@ -43,18 +46,20 @@ class Tabs extends Component {
     }
 
     render() {
-        const { onClickTabItem, props: { children }, state: { activeTab } } = this;
+        const { onClickTabItem, props: { children, vertical, customPadding }, state: { activeTab } } = this;
         return (
-            <div className={cx('tabs')}>
-                <div className={cx('tab-list')}>
+            <div className={cx('tabs', { 'tabs-vertical': vertical })}>
+                <div className={cx('tab-list', { 'tabs-vertical': vertical })}>
                     {
                         children.map((child) => {
-                            const { label } = child.props;
+                            const { label, tabcomponent } = child.props;
                             return (
                                 <Tab
                                     activeTab={activeTab}
                                     key={label}
                                     label={label}
+                                    tabcomponent={tabcomponent}
+                                    customPadding={customPadding}
                                     onClick={onClickTabItem}
                                 />
                             );

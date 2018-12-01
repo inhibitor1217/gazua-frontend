@@ -4,18 +4,27 @@
 
     display: flex;
     flex-direction: column;
-    margin-top: 1rem;
+    &.tabs-vertical {
+        flex-direction: row;
+    }
 
     .tab-list {
 
         display: flex;
         flex-direction: row;
+        &.tabs-vertical {
+            flex-direction: column;
+        }
 
         .tab-list-item {
             display: inline-block;
             padding: 0.5rem 0.75rem;
+            &.tab-list-custom-padding {
+                padding: 0;
+            }
             background: material-color('grey', '100');
             border: material-color('grey', '400');
+            cursor: pointer;
         }
         
         .tab-list-active {
@@ -31,10 +40,7 @@
     .tab-content {
 
         background: material-color('grey', '300');
-        padding: 1rem;
-
-        height: 500px;
-        overflow: auto;
+        min-height: 500px;
 
     }
 

@@ -19,7 +19,7 @@ const AssetPanel = ({ wallet, history }) => {
 
     const yesterdayTotal = yesterday && yesterday.total;
     const change = yesterday ? lastTotal - yesterdayTotal : '(자산 변화는 가입 후 약 24시간이 지나야 측정됩니다.)';
-    const changePercent = yesterday ? change / lastTotal : '- ';
+    const changePercent = yesterday ? (change * 100 / yesterdayTotal).toFixed(2) : '- ';
 
     return (
         <div className={cx('asset-panel')}>

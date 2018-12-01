@@ -19,7 +19,6 @@ const AbbrInfoPanel = ({
     data,
     highlights
 }) => {
-    const processedData = {};
     for (let currencyPair in currencyPairToAbbr) {
         data[currencyPair].currencyAbbr = currencyPairToAbbr[currencyPair];
     }
