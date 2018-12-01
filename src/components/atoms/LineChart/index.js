@@ -4,7 +4,6 @@ import { VictoryChart, VictoryAxis, VictoryLine } from 'victory';
 const LineChart = ({ data }) => {
     return (
         <VictoryChart
-            padding={70}
             scale={{ x: 'time' }}
         >
             <VictoryAxis
@@ -29,7 +28,7 @@ const LineChart = ({ data }) => {
             />
             <VictoryLine
                 style={{
-                    data: { stroke: '#00796b', strokeWidth: '0.5' }
+                    data: { stroke: '#558b2f', strokeWidth: '0.5' }
                 }}
                 data={data}
             />
