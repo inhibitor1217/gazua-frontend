@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import style from './style.scss';
 import classNames from 'classnames/bind';
-import { LineChart } from 'components';
+import { LineChart, TradePanel } from 'components';
 import * as tickerAPI from 'apis/ticker';
 
 const cx = classNames.bind(style);
@@ -50,11 +50,20 @@ class CurrencyDetailsPanel extends Component {
     }
 
     render() {
-        const { handleClickFilter, state: { tickers, activeFilter } } = this;
+        const {
+            handleClickFilter,
+            props: { ticker },
+            state: { tickers, activeFilter }
+        } = this;
+
         const data = [];
         tickers[activeFilter].forEach((ticker) => {
-            data.push({ x: new Date(ticker.ticker.timestamp), y: ticker.ticker.last });
+            data.push({
+                x: new Date(ticker.ticker.timestamp),
+                y: ticker.ticker.last
+            });
         });
+
         return (
             <div className={cx('currency-details-panel')}>
                 <div className={cx('currency-details-filters')}>
@@ -77,6 +86,25 @@ class CurrencyDetailsPanel extends Component {
                 <div className={cx('currency-details-chart-wrapper')}>
                     <LineChart data={data} />
                 </div>
+                <div className={cx('currency-details-prices')}>
+                    <div className={cx('currency-details-prices-item')}>
+                        <div className={cx('currency-details-font-small')}>현재가</div>
+                        <div className={cx('currency-details-font-large')}>{ticker.last}</div>
+                    </div>
+                    <div className={cx('currency-details-prices-item')}>
+                        <div className={cx('currency-details-font-small')}>저가 (최근 24시간)</div>
+                        <div className={cx('currency-details-font-large')}>{ticker.low}</div>
+                    </div>
+                    <div className={cx('currency-details-prices-item')}>
+                        <div className={cx('currency-details-font-small')}>고가 (최근 24시간)</div>
+                        <div className={cx('currency-details-font-large')}>{ticker.high}</div>
+                    </div>
+                    <div className={cx('currency-details-prices-item')}>
+                        <div className={cx('currency-details-font-small')}>거래량 (최근 24시간)</div>
+                        <div className={cx('currency-details-font-large')}>{ticker.volume.toFixed(5)}</div>
+                    </div>
+                </div>
+                <TradePanel />
             </div>
         );
     }

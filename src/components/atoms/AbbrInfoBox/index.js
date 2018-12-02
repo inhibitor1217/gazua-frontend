@@ -20,6 +20,7 @@ const AbbrInfoBox = ({
         timestamp
     } = data;
     const lastFormattedString = last ? last.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : last;
+    const changeFormattedString = change ? change.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : change;
     return (
         <div className={cx('abbr-info-box', {
             'abbr-info-box-border': border,
@@ -48,7 +49,7 @@ const AbbrInfoBox = ({
                     'changetype-neutral': changePercent > -0.1 && changePercent < 0.1,
                     'changetype-negative': changePercent < -0.1
                 })}>
-                    {change}
+                    {changeFormattedString}
                 </div>
                 <div className={cx('abbr-info-box-text', 'abbr-info-box-timestamp')}>
                     {new Date(timestamp).toLocaleString()} (최근 24시간 기준)

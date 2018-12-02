@@ -38,7 +38,7 @@ const DetailsPanel = ({ data }) => {
                                                     <AbbrInfoBox data={data[currencyPair]}/>
                                                 </Block>
                                             }>
-                                                {<CurrencyDetailsPanel currencyPair={currencyPair} />}
+                                                {<CurrencyDetailsPanel currencyPair={currencyPair} ticker={data[currencyPair]}/>}
                                             </div>
                                         );
                                     })
