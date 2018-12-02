@@ -1,0 +1,36 @@
+@import 'styles/utils.scss';
+
+.page-shifter-wrapper {
+
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .page-shifter {
+        padding: .5rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        div + div {
+            margin-left: 1rem;
+        }
+
+        .page-small {
+            font-size: 16px;
+            color: material-color('grey', '500');
+            text-align: center;
+            width: 20px;
+        }
+
+        .page-large {
+            font-size: 20px;
+            text-align: center;
+            width: 40px;
+        }
+    }
+
+}

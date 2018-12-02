@@ -1,8 +1,12 @@
 @import 'styles/utils.scss';
 
+.trade-display-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
 .trade-display-panel {
 
-    width: 100%;
     min-width: 600px;
     display: flex;
     flex-direction: column;
