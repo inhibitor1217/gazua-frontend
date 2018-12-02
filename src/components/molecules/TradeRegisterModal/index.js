@@ -5,11 +5,11 @@ import { Block } from 'components';
 
 const cx = classNames.bind(style);
 
-const TradePanel = () => {
+const TradeRegisterModal = () => {
     return (
-        <div className={cx('trade-panel')}>
+        <div className={cx('trade-register-modal')}>
             <Block dark>
-                <div className={cx('trade-panel-content')}>
+                <div className={cx('trade-register-modal-content')}>
                     Trade Panel
                 </div>
             </Block>
@@ -17,4 +17,4 @@ const TradePanel = () => {
     );
 };
 
-export default TradePanel;
+export default TradeRegisterModal;

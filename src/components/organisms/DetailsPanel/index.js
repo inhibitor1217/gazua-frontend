@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './style.scss';
 import classNames from 'classnames/bind';
-import { Block, GradientBar, Tabs, AbbrInfoBox, CurrencyDetailsPanel } from 'components';
+import { Block, GradientBar, Tabs, AbbrInfoBox, CurrencyDetailsPanel, TradeDisplayPanel } from 'components';
 import { currencyPairs, currencyPairToAbbr } from 'lib/constants';
 
 const cx = classNames.bind(style);
@@ -37,7 +37,14 @@ const DetailsPanel = ({ data }) => {
                             </Tabs>
                         </div>
                         <div label='거래 내역'>
-                            Trades
+                            <TradeDisplayPanel
+                                label='매수'
+                                subLabel='Bids'
+                            />
+                            <TradeDisplayPanel
+                                label='매도'
+                                subLabel='Asks'
+                            />
                         </div>
                         <div label='내 자산'>
                             History

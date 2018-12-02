@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import style from './style.scss';
 import classNames from 'classnames/bind';
-import { LineChart, TradePanel } from 'components';
+import { LineChart, TradeRegisterModal } from 'components';
 import * as tickerAPI from 'apis/ticker';
-import { formatString } from 'lib/utils';
+import { formatString, roundToTick } from 'lib/utils';
+import { orderCondition } from 'lib/constants';
 
 const cx = classNames.bind(style);
 
@@ -53,7 +54,7 @@ class CurrencyDetailsPanel extends Component {
     render() {
         const {
             handleClickFilter,
-            props: { ticker },
+            props: { ticker, currencyPair },
             state: { tickers, activeFilter }
         } = this;
 
@@ -102,10 +103,12 @@ class CurrencyDetailsPanel extends Component {
                     </div>
                     <div className={cx('currency-details-prices-item')}>
                         <div className={cx('currency-details-font-small')}>거래량 (최근 24시간)</div>
-                        <div className={cx('currency-details-font-large')}>{ticker.volume.toFixed(5)}</div>
+                        <div className={cx('currency-details-font-large')}>{
+                            formatString(roundToTick(ticker.volume.toFixed(5), orderCondition[currencyPair].order_min_size))
+                        }</div>
                     </div>
                 </div>
-                <TradePanel />
+                <TradeRegisterModal />
             </div>
         );
     }

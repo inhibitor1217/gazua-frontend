@@ -1,0 +1,103 @@
+@import 'styles/utils.scss';
+
+.trade-display-panel {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .trade-display-header {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        .trade-display-header-title {
+            font-size: 18px;
+            padding: 0.1rem;
+            border-bottom: 1px solid black;
+        }
+        .trade-display-header-username {
+            font-size: 16px;
+            margin-left: 1rem;
+            color: material-color('grey', '600');
+        }
+    }
+
+    .trade-display-panel-filter {
+        padding: .5rem 0;
+        width: 150px;
+        align-self: flex-end;
+        cursor: pointer;
+        .trade-display-panel-filter-dropdown-button {
+            border: none;
+            outline: none;
+            background: transparent;
+            padding: .5rem .8rem;
+            font-family: 'NanumSquare';
+            font-size: 16px;
+            display: flex;
+            flex-direction: row;
+            background: material-color('lime', '500');
+            &:hover {
+                background: material-color('lime', '700');
+            }
+            transition: .2s ease-in;
+            div {
+                margin-right: 75px;
+            }
+        }
+        .trade-display-panel-filter-dropdown-content {
+         
+            display: block;
+            visibility: hidden;
+            position: absolute;
+            min-width: 150px;
+            background: material-color('grey', '100');
+            z-index: $header-dropdown-z-index;
+
+            div {
+
+                font-family: 'NanumSquare';
+                padding: 8px;
+               
+                font-size: 13px;
+                background: material-color('grey', '600');
+                color: material-color('grey', '100');
+                border-bottom: 1px solid material-color('grey', '500');
+                border-top: 1px solid material-color('grey', '500');
+
+                &.dropdown-element-transition {
+                    background: material-color('grey', '100');
+                    font-size: 14px;
+                    color: black;
+                    border: none;
+                    &:hover {
+                        transition: .15s ease-in;
+                        background: material-color('lime', '300');
+                    }
+        
+                    &:active {
+                        background: material-color('lime', '400');
+                    }
+                }
+
+                &.dropdown-element-active {
+                    background: material-color('lime', 'a400');
+                }
+
+            }
+        }
+
+        &:hover {
+            .trade-display-panel-filter-dropdown-content {
+                visibility: visible;
+            }
+        }
+    }
+
+    .trade-display-panel-content {
+        padding: 1rem;
+    }
+
+}

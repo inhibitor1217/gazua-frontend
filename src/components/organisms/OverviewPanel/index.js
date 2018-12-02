@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './style.scss';
 import classNames from 'classnames/bind';
-import { Block, GradientBar, AssetPanel, AssetChartPanel, TradeOverviewPanel } from 'components';
+import { Block, GradientBar, AssetPanel, AssetChartPanel, TradeDisplayPanel } from 'components';
 
 const cx = classNames.bind(style);
 
@@ -29,7 +29,7 @@ const OverviewPanel = ({
                             <AssetChartPanel wallet={wallet} tickers={tickers}/>
                         </div>
                         <div className={cx('overview-panel-content-box')}>
-                            <TradeOverviewPanel />
+                            <TradeDisplayPanel />
                         </div>
                     </div>
                 </div>
