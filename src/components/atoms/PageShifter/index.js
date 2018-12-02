@@ -5,14 +5,14 @@ import { MaterialIcon } from 'components';
 
 const cx = classNames.bind(style);
 
-const PageShifter = ({ numPages, currentPage }) => {
+const PageShifter = ({ numPages, currentPage, handleFirstPage, handleLastPage, handleNextPage, handlePreviousPage }) => {
     return (
         <div className={cx('page-shifter-wrapper')}>
             <div className={cx('page-shifter')}>
-                <div>
+                <div onClick={handleFirstPage}>
                     <MaterialIcon md24 dark>arrow_back_ios</MaterialIcon>
                 </div>
-                <div>
+                <div onClick={handlePreviousPage}>
                     <MaterialIcon md24 dark>arrow_left</MaterialIcon>
                 </div>
                 <div className={cx('page-small')}>
@@ -24,10 +24,10 @@ const PageShifter = ({ numPages, currentPage }) => {
                 <div className={cx('page-small')}>
                     {currentPage < numPages ? currentPage + 1 : ' '}
                 </div>
-                <div>
+                <div onClick={handleNextPage}>
                     <MaterialIcon md24 dark>arrow_right</MaterialIcon>
                 </div>
-                <div>
+                <div onClick={handleLastPage}>
                     <MaterialIcon md24 dark>arrow_forward_ios</MaterialIcon>
                 </div>
             </div>

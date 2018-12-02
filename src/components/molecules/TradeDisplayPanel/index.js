@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import style from './style.scss';
 import classNames from 'classnames/bind';
 import { Block, MaterialIcon, Chart, PageShifter } from 'components';
-import { currencyPairs, currencyPairToAbbr, stateToStateText } from 'lib/constants';
+import { currencyPairs, currencyPairToAbbr, stateToStateText, states } from 'lib/constants';
 import { formatString } from 'lib/utils';
 import * as tradeAPI from 'apis/trade';
 
@@ -14,12 +14,18 @@ class TradeDisplayPanel extends Component {
 
         this.state = {
             activeFilter: {
-                states: ['pending', 'completed', 'withdrawn'],
+                states,
                 currencyPairs
             },
-            data: [[], [], [], [], [], []]
+            data: [[], [], [], [], [], []],
+            numPages: 1,
+            currentPage: 1
         };
 
+        this.handleNextPage = this.handleNextPage.bind(this);
+        this.handlePreviousPage = this.handlePreviousPage.bind(this);
+        this.handleFirstPage = this.handleFirstPage.bind(this);
+        this.handleLastPage = this.handleLastPage.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.retrieveData = this.retrieveData.bind(this);
         this.processData = this.processData.bind(this);
@@ -31,24 +37,58 @@ class TradeDisplayPanel extends Component {
         retrieveData();
     }
 
+    handleNextPage() {
+        const { currentPage, numPages } = this.state;
+        this.setState({
+            currentPage: currentPage < numPages ? currentPage + 1 : currentPage
+        });
+    }
+
+    handlePreviousPage() {
+        const { currentPage, numPages } = this.state;
+        this.setState({
+            currentPage: currentPage > 1 ? currentPage - 1 : currentPage
+        });
+    }
+
+    handleFirstPage() {
+        this.setState({
+            currentPage: 1
+        });
+    }
+
+    handleLastPage() {
+        this.setState({
+            currentPage: this.state.numPages
+        });
+    }
+
     handleSearch() {
         const { retrieveData } = this;
         retrieveData();
     }
 
     async retrieveData() {
-        const { api } = this.props;
+        const { api, pageLimit = 10 } = this.props;
         const { processData } = this;
         const { states, currencyPairs } = this.state.activeFilter;
         if (api === 'ask') {
             const { data } = await tradeAPI.ask({ states, currencyPairs });
+            const _data = processData(data);
+            const numData = Math.max.apply(null, _data.map((column) => column.length));
+            const numPages = Math.max(Math.ceil(numData / pageLimit), 1);
             this.setState({
-                data: processData(data)
+                data: _data,
+                numPages
             });
         } else if (api === 'bid') {
             const { data } = await tradeAPI.bid({ states, currencyPairs });
+            const _data = processData(data);
+            const numData = Math.max.apply(null, _data.map((column) => column.length));
+            const numPages = Math.max(Math.ceil(numData / pageLimit), 1);
             this.setState({
-                data: processData(data)
+                data: _data,
+                numPages
             });
         } else {
             return [];
@@ -109,11 +149,14 @@ class TradeDisplayPanel extends Component {
     }
 
     render() {
-        const { label, subLabel, pageLimit, currentPage = 1, verbose } = this.props;
-        const { data, activeFilter } = this.state;
-        const { handleToggle, handleSearch } = this;
-        const numData = Math.max.apply(null, data.map((column) => column.length));
-        const numPages = Math.min(Math.ceil(numData / pageLimit), 1);
+        const { label, subLabel, pageLimit = 10, verbose, maxLimit, key } = this.props;
+        const { data, activeFilter, currentPage, numPages } = this.state;
+        const { handleToggle, handleSearch, handleFirstPage, handleLastPage, handleNextPage, handlePreviousPage } = this;
+        const trimmedData = data.map(
+            (column) => maxLimit
+                ? column.slice(0, maxLimit)
+                : column.slice(pageLimit * (currentPage - 1), pageLimit * currentPage)
+        );
         return (
             <Block shadow>
                 <div className={cx('trade-display-wrapper')}>
@@ -136,24 +179,21 @@ class TradeDisplayPanel extends Component {
                                         </button>
                                         <div className={cx('trade-display-panel-filter-dropdown-content')}>
                                             <div>상태</div>
-                                            <div
-                                                className={cx('dropdown-element-transition', {
-                                                    'dropdown-element-active': activeFilter.states.includes('pending')
-                                                })}
-                                                onClick={handleToggle('states', 'pending')}
-                                            >처리 중</div>
-                                            <div
-                                                className={cx('dropdown-element-transition', {
-                                                    'dropdown-element-active': activeFilter.states.includes('completed')
-                                                })}
-                                                onClick={handleToggle('states', 'completed')}
-                                            >완료</div>
-                                            <div
-                                                className={cx('dropdown-element-transition', {
-                                                    'dropdown-element-active': activeFilter.states.includes('withdrawn')
-                                                })}
-                                                onClick={handleToggle('states', 'withdrawn')}
-                                            >취소됨</div>
+                                            {
+                                                states.map((state) => {
+                                                    return (
+                                                        <div
+                                                            className={cx('dropdown-element-transition', {
+                                                                'dropdown-element-active': activeFilter.states.includes(state)
+                                                            })}
+                                                            onClick={handleToggle('states', state)}
+                                                            key={`${key}-${state}`}
+                                                        >
+                                                            {stateToStateText[state]}
+                                                        </div>
+                                                    );
+                                                })
+                                            }
                                             <div>화폐</div>
                                             {
                                                 currencyPairs.map((pair) => {
@@ -187,12 +227,18 @@ class TradeDisplayPanel extends Component {
                                 labels={[
                                     '화폐', '가격', '수량', '미체결잔량', '상태'
                                 ]}
-                                data={data}
+                                data={trimmedData}
                             />
                         </div>
                         {
                             verbose
-                                ? <PageShifter numPages={numPages} currentPage={currentPage}/>
+                                ? <PageShifter
+                                    numPages={numPages} currentPage={currentPage}
+                                    handleFirstPage={handleFirstPage}
+                                    handleLastPage={handleLastPage}
+                                    handleNextPage={handleNextPage}
+                                    handlePreviousPage={handlePreviousPage}
+                                />
                                 : null
                         }
                     </div>

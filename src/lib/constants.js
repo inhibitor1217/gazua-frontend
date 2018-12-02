@@ -11,10 +11,13 @@ exports.currencyPairToAbbr = {
     'ltc_krw': 'LTC'
 };
 
+exports.states = ['pending', 'warning', 'completed', 'withdrawn'];
+
 exports.stateToStateText = {
     'pending': '처리 중',
     'completed': '완료',
-    'withdrawn': '취소됨'
+    'withdrawn': '취소됨',
+    'warning': '처리 중 (거부됨: 자금 부족)'
 };
 
 exports.orderCondition = {
