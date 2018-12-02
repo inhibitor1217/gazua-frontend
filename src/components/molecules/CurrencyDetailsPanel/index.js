@@ -3,6 +3,7 @@ import style from './style.scss';
 import classNames from 'classnames/bind';
 import { LineChart, TradePanel } from 'components';
 import * as tickerAPI from 'apis/ticker';
+import { formatString } from 'lib/utils';
 
 const cx = classNames.bind(style);
 
@@ -89,15 +90,15 @@ class CurrencyDetailsPanel extends Component {
                 <div className={cx('currency-details-prices')}>
                     <div className={cx('currency-details-prices-item')}>
                         <div className={cx('currency-details-font-small')}>현재가</div>
-                        <div className={cx('currency-details-font-large')}>{ticker.last}</div>
+                        <div className={cx('currency-details-font-large')}>{formatString(ticker.last)}</div>
                     </div>
                     <div className={cx('currency-details-prices-item')}>
                         <div className={cx('currency-details-font-small')}>저가 (최근 24시간)</div>
-                        <div className={cx('currency-details-font-large')}>{ticker.low}</div>
+                        <div className={cx('currency-details-font-large')}>{formatString(ticker.low)}</div>
                     </div>
                     <div className={cx('currency-details-prices-item')}>
                         <div className={cx('currency-details-font-small')}>고가 (최근 24시간)</div>
-                        <div className={cx('currency-details-font-large')}>{ticker.high}</div>
+                        <div className={cx('currency-details-font-large')}>{formatString(ticker.high)}</div>
                     </div>
                     <div className={cx('currency-details-prices-item')}>
                         <div className={cx('currency-details-font-small')}>거래량 (최근 24시간)</div>

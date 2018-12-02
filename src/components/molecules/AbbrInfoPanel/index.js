@@ -2,17 +2,9 @@ import React from 'react';
 import style from './style.scss';
 import classNames from 'classnames/bind';
 import { AbbrInfoBox } from 'components';
+import { currencyPairToAbbr } from 'lib/constants';
 
 const cx = classNames.bind(style);
-
-const currencyPairToAbbr = {
-    'btc_krw': 'BTC',
-    'etc_krw': 'ETC',
-    'eth_krw': 'ETH',
-    'xrp_krw': 'XRP',
-    'bch_krw': 'BCH',
-    'ltc_krw': 'LTC'
-};
 
 const AbbrInfoPanel = ({
     dark,

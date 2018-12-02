@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { DetailsPanel } from 'components';
 import * as tickerActions from 'store/modules/ticker';
+import { currencyPairs } from 'lib/constants';
 
 class DetailsPanelContainer extends Component {
     constructor(props) {
@@ -18,7 +19,6 @@ class DetailsPanelContainer extends Component {
 
     async retrieveData() {
         const { TickerActions } = this.props;
-        const currencyPairs = ['btc_krw', 'etc_krw', 'eth_krw', 'xrp_krw', 'bch_krw', 'ltc_krw'];
         currencyPairs.forEach(async (currencyPair) => {
             try {
                 await TickerActions.setTicker({ currencyPair });
