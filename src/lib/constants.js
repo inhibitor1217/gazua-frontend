@@ -11,6 +11,12 @@ exports.currencyPairToAbbr = {
     'ltc_krw': 'LTC'
 };
 
+exports.stateToStateText = {
+    'pending': '처리 중',
+    'completed': '완료',
+    'withdrawn': '취소됨'
+};
+
 exports.orderCondition = {
     btc_krw: {
         tick_size: 500,
