@@ -6,9 +6,9 @@ import { currencyPairs, currencyPairToAbbr } from 'lib/constants';
 
 const cx = classNames.bind(style);
 
-const DetailsPanel = ({ data }) => {
+const DetailsPanel = ({ tickerData }) => {
     for (let currencyPair in currencyPairToAbbr) {
-        data[currencyPair].currencyAbbr = currencyPairToAbbr[currencyPair];
+        tickerData[currencyPair].currencyAbbr = currencyPairToAbbr[currencyPair];
     }
     return (
         <div className={cx('details-panel')}>
@@ -26,10 +26,10 @@ const DetailsPanel = ({ data }) => {
                                         return (
                                             <div label={currencyPairToAbbr[currencyPair]} tabcomponent={
                                                 <Block transparent customMargin>
-                                                    <AbbrInfoBox data={data[currencyPair]}/>
+                                                    <AbbrInfoBox data={tickerData[currencyPair]}/>
                                                 </Block>
                                             }>
-                                                {<CurrencyDetailsPanel currencyPair={currencyPair} ticker={data[currencyPair]}/>}
+                                                {<CurrencyDetailsPanel currencyPair={currencyPair} ticker={tickerData[currencyPair]}/>}
                                             </div>
                                         );
                                     })
@@ -40,10 +40,14 @@ const DetailsPanel = ({ data }) => {
                             <TradeDisplayPanel
                                 label='매수'
                                 subLabel='Bids'
+                                api='bid'
+                                verbose
                             />
                             <TradeDisplayPanel
                                 label='매도'
                                 subLabel='Asks'
+                                api='ask'
+                                verbose
                             />
                         </div>
                         <div label='내 자산'>

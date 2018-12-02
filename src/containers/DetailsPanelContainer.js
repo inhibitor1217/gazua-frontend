@@ -9,15 +9,15 @@ class DetailsPanelContainer extends Component {
     constructor(props) {
         super(props);
 
-        this.retrieveData = this.retrieveData.bind(this);
+        this.retrieveTickerData = this.retrieveTickerData.bind(this);
     }
 
     componentWillMount() {
-        const { retrieveData } = this;
-        retrieveData();
+        const { retrieveTickerData } = this;
+        retrieveTickerData();
     }
 
-    async retrieveData() {
+    async retrieveTickerData() {
         const { TickerActions } = this.props;
         currencyPairs.forEach(async (currencyPair) => {
             try {
@@ -30,9 +30,9 @@ class DetailsPanelContainer extends Component {
 
     render() {
         const { tickers } = this.props;
-        const data = tickers.toJS();
+        const tickerData = tickers.toJS();
         return (
-            <DetailsPanel data={data} />
+            <DetailsPanel tickerData={tickerData} />
         );
     }
 }

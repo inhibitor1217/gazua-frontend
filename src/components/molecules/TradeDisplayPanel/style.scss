@@ -73,17 +73,17 @@
                 border-top: 1px solid material-color('grey', '500');
 
                 &.dropdown-element-transition {
-                    background: material-color('grey', '100');
+                    background: material-color('grey', '300');
                     font-size: 14px;
                     color: black;
                     border: none;
                     &:hover {
                         transition: .15s ease-in;
-                        background: material-color('lime', '300');
+                        background: material-color('lime', '200');
                     }
         
                     &:active {
-                        background: material-color('lime', '400');
+                        background: material-color('lime', '300');
                     }
                 }
 

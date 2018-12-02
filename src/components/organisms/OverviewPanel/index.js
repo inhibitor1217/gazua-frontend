@@ -29,7 +29,8 @@ const OverviewPanel = ({
                             <AssetChartPanel wallet={wallet} tickers={tickers}/>
                         </div>
                         <div className={cx('overview-panel-content-box')}>
-                            <TradeDisplayPanel />
+                            <TradeDisplayPanel label='거래 요약 :' subLabel='매수' api='bid'/>
+                            <TradeDisplayPanel label='거래 요약 :' subLabel='매도' api='ask'/>
                         </div>
                     </div>
                 </div>
