@@ -1,0 +1,28 @@
+@import 'styles/utils.scss';
+
+.chart {
+
+    display: flex;
+    flex-direction: row;
+
+    .chart-column {
+        flex: 1 1 0;
+        background: material-color('grey', '200');
+        .chart-item {
+            text-align: right;
+            padding: 6px .5rem;
+        }
+        .chart-column-header {
+            text-align: center;
+            padding: 6px .5rem;
+            background: material-color('grey', '300');
+            border-top: 1px solid material-color('grey', '500');
+            border-bottom: 1px solid material-color('grey', '500');
+        }
+        border-bottom: 1px solid material-color('grey', '500');
+    }
+    .chart-column + .chart-column {
+        border-left: 1px solid material-color('grey', '500');
+    }
+
+}

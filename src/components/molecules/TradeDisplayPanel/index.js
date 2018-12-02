@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './style.scss';
 import classNames from 'classnames/bind';
-import { Block, MaterialIcon } from 'components';
+import { Block, MaterialIcon, Chart } from 'components';
 import { currencyPairs, currencyPairToAbbr } from 'lib/constants';
 
 const cx = classNames.bind(style);
@@ -25,7 +25,7 @@ const TradeDisplayPanel = ({ label, subLabel }) => {
                     </button>
                     <div className={cx('trade-display-panel-filter-dropdown-content')}>
                         <div>상태</div>
-                        <div className={cx('dropdown-element-transition', 'dropdown-element-active')}>처리 중</div>
+                        <div className={cx('dropdown-element-transition')}>처리 중</div>
                         <div className={cx('dropdown-element-transition')}>완료</div>
                         <div className={cx('dropdown-element-transition')}>취소됨</div>
                         <div>화폐</div>
@@ -41,7 +41,12 @@ const TradeDisplayPanel = ({ label, subLabel }) => {
                     </div>
                 </div>
                 <div className={cx('trade-display-panel-content')}>
-                    content
+                    <Chart
+                        labels={[
+                            '화폐', '가격', '수량', '미체결잔량', '상태', '시간'
+                        ]}
+                        data={[[], [], [], [], [], []]}
+                    />
                 </div>
             </div>
         </Block>
