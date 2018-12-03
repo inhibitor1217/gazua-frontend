@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import style from './style.scss';
 import classNames from 'classnames/bind';
 import { Block, MaterialIcon, Chart, PageShifter } from 'components';
 import { currencyPairs, currencyPairToAbbr, stateToStateText, states } from 'lib/constants';
 import { formatString } from 'lib/utils';
 import * as tradeAPI from 'apis/trade';
+import * as tradeActions from 'store/modules/trade';
 
 const cx = classNames.bind(style);
 
@@ -35,6 +38,19 @@ class TradeDisplayPanel extends Component {
     componentWillMount() {
         const { retrieveData } = this;
         retrieveData();
+    }
+
+    async componentWillReceiveProps(nextProps) {
+        const { api, TradeActions } = this.props;
+        const { updateAsk, updateBid } = nextProps;
+        const { retrieveData } = this;
+        if (updateAsk && api === 'ask') {
+            await retrieveData();
+            TradeActions.setUpdateAsk(false);
+        } else if (updateBid && api === 'bid') {
+            await retrieveData();
+            TradeActions.setUpdateBid(false);
+        }
     }
 
     handleNextPage() {
@@ -248,4 +264,12 @@ class TradeDisplayPanel extends Component {
     }
 }
 
-export default TradeDisplayPanel;
+export default connect(
+    (store) => ({
+        updateAsk: store.trade.get('updateAsk'),
+        updateBid: store.trade.get('updateBid')
+    }),
+    (dispatch) => ({
+        TradeActions: bindActionCreators(tradeActions, dispatch)
+    })
+)(TradeDisplayPanel);
