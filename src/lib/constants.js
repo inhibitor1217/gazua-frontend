@@ -1,3 +1,11 @@
+const {
+    NODE_ENV: nodeEnv,
+    REACT_APP_DEV_API_URL: devURL,
+    REACT_APP_BUILD_API_URL: buildURL
+} = process.env;
+
+exports.apiURL = nodeEnv === 'development' ? devURL : buildURL;
+
 exports.currencyPairs = [
     'btc_krw', 'etc_krw', 'eth_krw', 'xrp_krw', 'bch_krw', 'ltc_krw'
 ];
