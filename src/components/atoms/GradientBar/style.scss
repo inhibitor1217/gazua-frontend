@@ -12,4 +12,10 @@
         material-color('yellow', '400'),
         material-color('red', '400'));
     }
+    &.dark {
+        background: linear-gradient(to right, 
+        material-color('indigo', '600'),
+        material-color('blue', '600'),
+        material-color('deep-purple', '600'));
+    }
 }

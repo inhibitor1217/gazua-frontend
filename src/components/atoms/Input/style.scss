@@ -23,6 +23,12 @@
         &::placeholder {
             color: black;
         }
+        &.input-dark {
+            color: white;
+            &::placeholder {
+                color: white;
+            }
+        }
     }
 }
 
