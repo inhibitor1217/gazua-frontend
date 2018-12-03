@@ -1,10 +1,13 @@
 const {
     NODE_ENV: nodeEnv,
     REACT_APP_DEV_API_URL: devURL,
-    REACT_APP_BUILD_API_URL: buildURL
+    REACT_APP_BUILD_API_URL: buildURL,
+    REACT_APP_DEV_SOCKET_URL: devSocketURL,
+    REACT_APP_BUILD_SOCKET_URL: buildSocketURL
 } = process.env;
 
 exports.apiURL = nodeEnv === 'development' ? devURL : buildURL;
+exports.socketURL = nodeEnv === 'development' ? devSocketURL : buildSocketURL;
 
 exports.currencyPairs = [
     'btc_krw', 'etc_krw', 'eth_krw', 'xrp_krw', 'bch_krw', 'ltc_krw'
