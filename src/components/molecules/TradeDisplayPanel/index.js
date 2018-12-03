@@ -90,6 +90,7 @@ class TradeDisplayPanel extends Component {
         const { states, currencyPairs } = this.state.activeFilter;
         if (api === 'ask') {
             const { data } = await tradeAPI.ask({ states, currencyPairs });
+            if (!data) return [];
             const _data = processData(data);
             const numData = Math.max.apply(null, _data.map((column) => column.length));
             const numPages = Math.max(Math.ceil(numData / pageLimit), 1);
@@ -99,6 +100,7 @@ class TradeDisplayPanel extends Component {
             });
         } else if (api === 'bid') {
             const { data } = await tradeAPI.bid({ states, currencyPairs });
+            if (!data) return [];
             const _data = processData(data);
             const numData = Math.max.apply(null, _data.map((column) => column.length));
             const numPages = Math.max(Math.ceil(numData / pageLimit), 1);
